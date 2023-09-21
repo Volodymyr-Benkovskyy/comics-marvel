@@ -1,20 +1,20 @@
 {
   "name": "comics-marvel",
   "version": "1.0.0",
-  "description": "A site about Marvel Comics heroes and their adventures.",
-  "main": "index.js",
+  "description": "\" \",",
+ 
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /comics-marvel/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Volodymyr-Benkovskyy/comics-marvel.git"
+    "url": "git+https://github.com/Volodymyr-Benkovskyy/comics-marvel.git"
   },
   "author": "Volodymyr Benkovskyy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Volodymyr-Benkovskyy/comics-marvel.git"
+    "url": "https://github.com/Volodymyr-Benkovskyy/comics-marvel/issues"
   },
   "homepage": "https://Volodymyr-Benkovskyy.github.io/comics-marvel/",
   "devDependencies": {
