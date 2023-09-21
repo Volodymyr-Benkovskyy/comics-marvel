@@ -1,0 +1,67 @@
+@import url('../common/vars.css');
+
+.header {
+  position: sticky;
+  top: 0px;
+  padding: 15px 0;
+  z-index: 10;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  width: 100px;
+  height: 20px;
+}
+
+.header-btn {
+  position: absolute;
+}
+
+.header-icon-search {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  transform: translate(-95px, 5px);
+  fill: var(--font-color);
+}
+
+.header-input {
+  width: 100px;
+  font-family: 'Poppins';
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--font-color);
+  padding: 5px 20px 5px 32px;
+  background: transparent;
+  border: 1px solid var(--font-color);
+  border-radius: 15px;
+  text-align: end;
+}
+
+.header-input::placeholder {
+  text-transform: uppercase;
+  color: var(--font-color);
+}
+
+@media screen and (min-width: 768px) {
+  .header-logo {
+    width: 210px;
+    height: 35px;
+  }
+
+  .header-input {
+    font-size: 14px;
+    border-radius: 20px;
+  }
+
+  .header-icon-search {
+    width: 20px;
+    height: 20px;
+    transform: translate(-95px, 5px);
+  }
+}
