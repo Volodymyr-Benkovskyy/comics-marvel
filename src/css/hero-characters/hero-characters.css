@@ -1,0 +1,403 @@
+@import url('../common/vars.css');
+
+.hero-characters {
+  padding-top: 40;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.hero-characters-subtitle {
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 1.285;
+  color: var(--text-additional-color);
+  margin-bottom: 14px;
+}
+
+.hero-characters-title {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+  color: var(--font-color);
+  margin-bottom: 16px;
+}
+
+.hero-characters-text {
+  font-size: 14px;
+  line-height: 1.285;
+  color: var(--light-font-color);
+  margin-bottom: 20px;
+}
+
+.hero-characters-buttons {
+  display: flex;
+}
+
+.btn-hero {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: var(--font-color);
+  background-color: transparent;
+  margin-bottom: 40px;
+  outline: none;
+  border: 1px solid var(--font-color);
+  border-radius: 1000px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  display: block;
+}
+
+.btn-hero:hover,
+.btn-hero:focus {
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.hero-characters-img {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  min-width: 0;
+}
+.hero-second-wrapper {
+  margin-left: auto;
+}
+
+.hero-characters-line-svg {
+  fill: var(--description-color);
+  width: 237px;
+  height: 6px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.hero-characters-description {
+  display: flex;
+  column-gap: 55px;
+}
+
+.hero-characters-description-subtitle {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.166;
+  letter-spacing: -0.02em;
+  color: var(--font-color);
+}
+
+.hero-characters-description-text {
+  font-size: 12px;
+  line-height: 1.166;
+  letter-spacing: -0.02em;
+  color: var(--description-color);
+  width: 125px;
+}
+
+.hero-second-box {
+  border-radius: 0px 0px 0px 4px;
+  width: 237px;
+  background-color: var(--box-color);
+  background-image: url('../../images/hero-characters-img/line-white.png');
+  background-repeat: no-repeat;
+  background-position: 0px 5px;
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.hero-characters-arrow-svg {
+  position: absolute;
+  right: 14px;
+  bottom: 16px;
+  fill: var(--primary-color);
+  width: 24px;
+  height: 24px;
+}
+
+.hero-characters-circle {
+  background: radial-gradient(
+    81.15% 81.15% at 50% 18.85%,
+    #600404 0%,
+    #171717 100%
+  );
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: absolute;
+  bottom: 16px;
+  left: 14px;
+}
+
+.hero-characters-circle-text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.125;
+  color: var(--font-color);
+  text-transform: uppercase;
+}
+
+.hero-pantera-black-img {
+  margin-left: 35px;
+  padding-bottom: 28px;
+}
+
+@media screen and (min-width: 320px) {
+  img.hero-first-img {
+    height: 380px;
+  }
+
+  .hero-spiderman-img {
+    margin-left: 35px;
+    padding-top: 40px;
+    padding-bottom: 24px;
+  }
+
+  .circle-blue {
+    background: radial-gradient(
+      81.15% 81.15% at 50% 18.85%,
+      #34387f 0%,
+      #171717 100%
+    );
+  }
+
+  .arrow-svg-blue {
+    fill: var(--slide-second);
+  }
+
+  .hero-hulk-img {
+    padding-top: 90px;
+    padding-bottom: 30px;
+    margin-left: 10px;
+  }
+
+  .hulk-circule-green {
+    background: radial-gradient(
+      81.15% 81.15% at 50% 18.85%,
+      #5b7f3c 0%,
+      #171717 100%
+    );
+  }
+
+  .arrow-svg-green {
+    fill: var(--slide-third);
+  }
+
+  .hero-second-wrapper {
+    margin-left: auto;
+  }
+
+  .section-hero-swiper {
+    width: 100%;
+    height: 920px;
+    overflow: hidden;
+  }
+
+  .swiper-vertical > .swiper-pagination-bullets {
+    top: 170px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 2px;
+    height: 60px;
+    cursor: pointer;
+    background: white;
+    margin-bottom: 10px;
+    border-radius: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero-hulk-img {
+    padding-top: 130px;
+    padding-bottom: 20px;
+    margin-left: 0;
+  }
+
+  img.hero-first-img {
+    height: auto;
+  }
+
+  .hero-spiderman-img {
+    margin-left: 90px;
+    padding-top: 165px;
+    padding-bottom: 16px;
+  }
+
+  .hero-second-wrapper {
+    margin-left: 0;
+  }
+
+  .swiper-vertical > .swiper-pagination-bullets {
+    top: 265px;
+  }
+
+  .swiper-pagination-bullet {
+    height: 100px;
+  }
+
+  .section-hero-swiper {
+    width: 100%;
+    height: 670px;
+    overflow: hidden;
+  }
+
+  .hero-characters {
+    padding-top: 146px;
+    overflow: hidden;
+  }
+
+  .hero-characters-subtitle {
+    font-size: 18px;
+    line-height: 1.611;
+    margin-bottom: 16px;
+  }
+
+  .hero-characters-title {
+    width: 538px;
+    font-size: 80px;
+    line-height: 80px;
+  }
+
+  .hero-characters-text {
+    font-size: 16px;
+    width: 473px;
+    margin-bottom: 32px;
+  }
+
+  .btn-hero {
+    font-size: 14px;
+    line-height: 1.285;
+    padding: 12px 24px;
+  }
+
+  .hero-second-box {
+    width: 336px;
+    background-position: right 100px;
+    margin-bottom: 16px;
+  }
+
+  .hero-characters-circle {
+    width: 104px;
+    height: 104px;
+  }
+
+  .hero-characters-circle-text {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .hero-characters-arrow-svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-pantera-black-img {
+    margin-left: 75px;
+    padding-top: 107px;
+    padding-bottom: 0px;
+  }
+
+  .hero-characters-img {
+    flex-direction: row;
+    align-items: end;
+    column-gap: 32px;
+  }
+
+  .hero-characters-line-svg {
+    width: 336px;
+    height: 9px;
+    margin-bottom: 16px;
+  }
+
+  .hero-characters-description {
+    column-gap: 84px;
+  }
+
+  .hero-characters-description-text {
+    width: 195px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero-characters {
+    padding-top: 0;
+    top: -67px;
+    right: -18px;
+  }
+
+  .hero-characters-title {
+    width: 527px;
+  }
+
+  .hero-characters-text {
+    width: 527px;
+  }
+
+  .wrapper-hero-characters {
+    display: flex;
+  }
+
+  .hero-characters-img {
+    column-gap: 32px;
+    margin-left: 145px;
+  }
+
+  .hero-second-box {
+    width: 355px;
+    margin-bottom: 32px;
+    background-position: right 118px;
+    background-image: url('../../images/hero-characters-img/line-desktop.png');
+  }
+
+  .hero-pantera-black-img {
+    margin-left: 95px;
+    padding-top: 135px;
+  }
+
+  .hero-second-wrapper {
+    margin-bottom: 110px;
+  }
+
+  .hero-characters-content {
+    margin-top: 210px;
+    margin-right: auto;
+  }
+
+  .section-hero-swiper {
+    height: 780px;
+  }
+
+  .swiper-vertical > .swiper-pagination-bullets {
+    top: 523px;
+    left: 80px;
+    z-index: 0;
+  }
+
+  .swiper-pagination-bullet {
+    width: 3px;
+  }
+
+  .hero-characters-link {
+    position: relative;
+    display: flex;
+    right: 15px;
+  }
+}
+
+.swiper-pagination-bullet-active[aria-label='Go to slide 1'] {
+  background: var(--primary-color);
+}
+
+.swiper-pagination-bullet-active[aria-label='Go to slide 2'] {
+  background: var(--slide-second);
+}
+
+.swiper-pagination-bullet-active[aria-label='Go to slide 3'] {
+  background: var(--slide-third);
+}
