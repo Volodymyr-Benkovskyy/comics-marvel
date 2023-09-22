@@ -376,7 +376,7 @@
   .swiper-vertical > .swiper-pagination-bullets {
     top: 523px;
     left: 80px;
-    z-index: 0;
+    z-index: 1;
   }
 
   .swiper-pagination-bullet {
