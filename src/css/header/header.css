@@ -22,6 +22,10 @@
   position: absolute;
 }
 
+.js-header-bg {
+  background-image: linear-gradient(to bottom, hsl(240, 88%, 3%), #1d123f);
+}
+
 .header-icon-search {
   position: absolute;
   width: 15px;

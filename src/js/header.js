@@ -72,3 +72,15 @@ const onSearchInputSubmit = async event => {
 };
 
 formSearch.addEventListener('submit', onSearchInputSubmit);
+
+const headerScroll = document.querySelector('.header');
+
+const onHeaderScroll = () => {
+  if (scrollY !== 0) {
+    headerScroll.classList.add('js-header-bg');
+  } else {
+    headerScroll.classList.remove('js-header-bg');
+  }
+};
+
+window.addEventListener('scroll', onHeaderScroll);

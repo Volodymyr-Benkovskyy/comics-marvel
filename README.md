@@ -7,3 +7,4 @@
 <!-- created function renderGalleryHero,  -->
 <!-- add search error render svg -->
 <!-- add loader  -->
+<!-- create function onHeaderScroll -->
