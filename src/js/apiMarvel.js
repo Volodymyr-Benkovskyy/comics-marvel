@@ -39,7 +39,6 @@ export const api = {
 
       return data;
     } catch (error) {
-      console.log(error);
       return { error: error.message };
     }
   },

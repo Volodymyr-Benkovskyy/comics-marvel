@@ -1,5 +1,6 @@
 import { api } from './apiMarvel';
 import { getItemsPerPage } from './helpers/getItemsPerPage';
+import { showLoader, hideLoader } from './helpers/loader';
 
 const galleryHero = document.querySelector('.js-header-search');
 const formSearch = document.querySelector('.js-header-form');
@@ -29,6 +30,14 @@ const renderGalleryHero = data => {
   galleryHero.insertAdjacentHTML('beforeend', createGalleryHero(data));
 };
 
+const scrollHeaderSearch = () => {
+  galleryHero.scrollIntoView({ behavior: 'smooth' });
+};
+
+const clearGalleryHero = () => {
+  galleryHero.innerHTML = '';
+};
+
 const onSearchInputSubmit = async event => {
   event.preventDefault();
   const { target: formEl } = event;
@@ -37,6 +46,7 @@ const onSearchInputSubmit = async event => {
 
   if (query !== '') {
     try {
+      showLoader();
       const response = await api.getCharacters({
         nameStartsWith: query,
         limit: itemsPerPage,
@@ -44,13 +54,19 @@ const onSearchInputSubmit = async event => {
       });
 
       if (response.results.length === 0) {
+        hideLoader();
+        scrollHeaderSearch();
         galleryHero.innerHTML = '<div class="nothing-seach"></div>';
         return;
       }
-
+      hideLoader();
+      clearGalleryHero();
       renderGalleryHero(response.results);
+      scrollHeaderSearch();
     } catch (error) {
-      console.log('Error!', error);
+      location.replace('../error.html');
+
+      hideLoader();
     }
   }
 };

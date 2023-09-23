@@ -6,3 +6,4 @@
 <!-- created function api getCharacters, submit  onSearchInputSubmit -->
 <!-- created function renderGalleryHero,  -->
 <!-- add search error render svg -->
+<!-- add loader  -->
