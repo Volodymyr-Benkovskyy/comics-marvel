@@ -1,0 +1,10 @@
+.nothing-seach {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: url('../../images/nothing-svg/nothing.svg') no-repeat;
+  background-position: 50% 50%;
+  background-color: transparent;
+  width: 260px;
+  height: 150px;
+}

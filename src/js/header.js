@@ -43,6 +43,11 @@ const onSearchInputSubmit = async event => {
         offset: 0,
       });
 
+      if (response.results.length === 0) {
+        galleryHero.innerHTML = '<div class="nothing-seach"></div>';
+        return;
+      }
+
       renderGalleryHero(response.results);
     } catch (error) {
       console.log('Error!', error);

@@ -1,6 +1,7 @@
 @import '/node_modules/modern-normalize/modern-normalize.css';
 @import url('../header/header.css');
 @import url('../common/reset.css');
-@import url('..//common/vars.css');
+@import url('../common/vars.css');
 @import url('../hero-characters/hero-characters.css');
 @import url('../header-search/header-search.css');
+@import url('../../css/nothing-search/nothing-search.css');
