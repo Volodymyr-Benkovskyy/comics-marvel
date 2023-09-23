@@ -1,9 +1,33 @@
 import { api } from './apiMarvel';
 import { getItemsPerPage } from './helpers/getItemsPerPage';
 
+const galleryHero = document.querySelector('.js-header-search');
 const formSearch = document.querySelector('.js-header-form');
 let itemsPerPage = null;
+
 itemsPerPage = getItemsPerPage();
+
+const createGalleryHero = data => {
+  return data
+    .map(el => {
+      return `<li class="header-search-item">
+        <img class="header-search-img"
+       data-set="${el.id}"
+        src="${el.thumbnail.path}.${el.thumbnail.extension}"
+        alt="${el.name}"
+      />
+          <div class="header-search-context">
+          <h3  class="header-search-title" data-set="${el.id}">${el.name}</h3>
+          </div>
+      </li>
+    `;
+    })
+    .join('');
+};
+
+const renderGalleryHero = data => {
+  galleryHero.insertAdjacentHTML('beforeend', createGalleryHero(data));
+};
 
 const onSearchInputSubmit = async event => {
   event.preventDefault();
@@ -13,11 +37,13 @@ const onSearchInputSubmit = async event => {
 
   if (query !== '') {
     try {
-      const respons = await api.getCharacters({
+      const response = await api.getCharacters({
         nameStartsWith: query,
         limit: itemsPerPage,
         offset: 0,
       });
+
+      renderGalleryHero(response.results);
     } catch (error) {
       console.log('Error!', error);
     }

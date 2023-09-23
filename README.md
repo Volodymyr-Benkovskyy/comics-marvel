@@ -4,3 +4,5 @@
 <!-- npm install spin.js  ==>>   loader -->
 
 <!-- installing libraries md5,  spin.js, create function hash, breakpointsWidth -->
+<!-- created function api getCharacters, submit  onSearchInputSubmit -->
+<!-- created function renderGalleryHero,  -->
