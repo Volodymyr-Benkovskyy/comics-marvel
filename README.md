@@ -10,3 +10,4 @@
 <!-- create function onHeaderScroll -->
 <!-- created section random characters html, css , function getRandomCharacters  -->
 <!-- add style  random characters @media screen and 768 - 1440 -->
+<!-- created function js-slide section  random characters -->

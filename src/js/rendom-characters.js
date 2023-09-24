@@ -1,5 +1,5 @@
 import { api } from './apiMarvel';
-
+import { showNextSlide } from './helpers/slide';
 const randomImg = document.querySelector('.js-random-img');
 const randomDescr = document.querySelector('.js-random-descr');
 
@@ -47,7 +47,7 @@ const getRandomCharacters = async () => {
   try {
     const allCharacters = await api.getCharacters('/characters', {
       params: {
-        limit: 5,
+        limit: 10,
         offset: 0,
       },
     });
@@ -68,8 +68,15 @@ const getRandomCharacters = async () => {
     console.log(randomCharactersArray);
     renderRandomImg(randomCharactersArray);
     renderRandmDescr(randomCharactersArray);
+
+    slideImagesArray = document.querySelectorAll('.js-slide');
+    slideDescriptionsArray = document.querySelectorAll(
+      '.js-random-characters-description'
+    );
+    setInterval(showNextSlide, 3500);
   } catch (error) {
     console.log(error);
+    location.replace('../error.html');
     return { error: error.message };
   }
 };

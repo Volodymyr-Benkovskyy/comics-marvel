@@ -17,7 +17,7 @@ const instance = axios.create({
 
 export const api = {
   getCharacters: async ({
-    limit = 20,
+    limit = 60,
     offset = 0,
     nameStartsWith = '',
     comics = '',

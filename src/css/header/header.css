@@ -44,12 +44,11 @@
   background: transparent;
   border: 1px solid var(--font-color);
   border-radius: 15px;
-  text-align: end;
 }
 
 .header-input::placeholder {
   text-transform: uppercase;
-  color: var(--font-color);
+  color: rgb(238, 87, 87);
 }
 
 @media screen and (min-width: 768px) {
@@ -59,6 +58,7 @@
   }
 
   .header-input {
+    width: 130px;
     font-size: 14px;
     border-radius: 20px;
   }
@@ -66,6 +66,11 @@
   .header-icon-search {
     width: 20px;
     height: 20px;
-    transform: translate(-95px, 5px);
+    transform: translate(-120px, 3px);
+  }
+  .header-input::placeholder {
+    color: rgb(238, 87, 87);
+    margin-left: 5px;
+    text-align: end;
   }
 }
