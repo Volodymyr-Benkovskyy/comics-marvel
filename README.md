@@ -8,3 +8,4 @@
 <!-- add search error render svg -->
 <!-- add loader  -->
 <!-- create function onHeaderScroll -->
+<!-- created section random characters html, css , function getRandomCharacters  -->
