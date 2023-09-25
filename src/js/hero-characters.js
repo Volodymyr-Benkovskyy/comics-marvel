@@ -10,6 +10,17 @@ const swiperSlideHero = new Swiper('.section-hero-swiper', {
   slidesPerView: 1,
 
   initialSlide: 0,
+  breakpoints: {
+    320: {
+      direction: 'vertical',
+    },
+    768: {
+      direction: 'horizontal',
+    },
+    1440: {
+      direction: 'vertical',
+    },
+  },
 });
 
 const swiperaPagination = document.querySelector('.swiper-pagination');
@@ -33,5 +44,4 @@ const onSwiper = event => {
 };
 
 swiperaPagination.addEventListener('click', onSwiper);
-
 /* swiperSlideHero */
