@@ -11,3 +11,5 @@
 <!-- created section random characters html, css , function getRandomCharacters  -->
 <!-- add style  random characters @media screen and 768 - 1440 -->
 <!-- created function js-slide section  random characters -->
+<!-- fix js-slide style rendom-characters, and create section last-comics html -->
+<!-- created function getRandomComics, add  slide Swiper -->

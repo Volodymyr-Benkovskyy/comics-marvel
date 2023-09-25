@@ -1,0 +1,98 @@
+.last-comics-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.last-comics-section-title {
+  color: var(--font-color);
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.14;
+  margin-bottom: 20px;
+}
+
+.last-comics-arrow-svg {
+  display: none;
+}
+
+.last-comics-img {
+  width: 100%;
+  margin-bottom: 10px;
+  object-fit: fill;
+}
+
+.last-comics-title {
+  color: var(--font-color);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+  margin-bottom: 5px;
+}
+
+p.last-comics-creator {
+  color: var(--text-additional-color);
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.swiper-horizontal > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+  background-color: var(--primary-color);
+}
+@media screen and (min-width: 768px) {
+  .last-comics-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .last-comics-section-title {
+    font-size: 40px;
+    margin-bottom: 25px;
+  }
+
+  .last-comics-img {
+    width: 100%;
+
+    margin-bottom: 10px;
+  }
+
+  .last-comics-title {
+    font-size: 20px;
+  }
+
+  p.last-comics-creator {
+    margin-bottom: 50px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .last-comics-section-title {
+    font-size: 44px;
+    margin-bottom: 15px;
+  }
+
+  .last-comics-arrow-svg {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    margin-bottom: 15px;
+    fill: var(--font-color);
+  }
+
+  .last-comics-arrow-svg:hover,
+  .last-comics-arrow-svg:focus {
+    fill: var(--primary-color);
+  }
+
+  .last-comics-title {
+    font-size: 22px;
+  }
+
+  .last-comics-creator {
+    font-size: 18px;
+  }
+}

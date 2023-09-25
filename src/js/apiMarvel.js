@@ -42,4 +42,35 @@ export const api = {
       return { error: error.message };
     }
   },
+
+  getComics: async ({
+    limit = 20,
+    offset = 0,
+    startYear = 0,
+    format = '',
+    title = '',
+    titleStartsWith = '',
+    orderBy = '',
+    dateDescriptor = '',
+  }) => {
+    try {
+      const response = await instance.get('/comics', {
+        params: {
+          ...(limit && { limit }),
+          ...(offset && { offset }),
+          ...(startYear && { startYear }),
+          ...(titleStartsWith && { titleStartsWith }),
+          ...(format && { format }),
+          ...(title && { title }),
+          ...(orderBy && { orderBy }),
+          ...(dateDescriptor && { dateDescriptor }),
+        },
+      });
+      const data = response.data.data;
+      return data;
+    } catch (error) {
+      console.log(error);
+      return { error: error.message };
+    }
+  },
 };

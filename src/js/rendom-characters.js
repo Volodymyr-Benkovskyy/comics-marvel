@@ -26,19 +26,6 @@ const renderRandomImg = data => {
   randomImg.insertAdjacentHTML('beforeend', createRandomImg(data));
 };
 
-/* const createRandomDescr = array => {
-  let data = '';
-  array.forEach(({ name, description, id }, index) => {
-    const isActive = index === 0 ? 'js-active' : '';
-    data += `
-      <li class='js-random-characters-description ${isActive}' data-id="${id}">
-        <h3 class='js-random-characters-title' data-id="${id}">${name}</h3>
-        <p class='js-random-characters-text' data-id="${id}">${description}</p>
-      </li>`;
-  });
-
-  return data;
-}; */
 const createRandomDescr = array => {
   const data = array
     .map(({ name, description, id }) => {
@@ -73,7 +60,6 @@ const getRandomCharacters = async () => {
       const randomCharacter = remainingResults[randomIndex];
       randomCharactersArray.push(randomCharacter);
 
-      // Видалення обраного елемента з копії масиву
       remainingResults.splice(randomIndex, 1);
     }
 

@@ -22,7 +22,7 @@
   display: block;
   position: relative;
   width: 100%;
-  height: 360px;
+
   overflow: hidden;
 }
 .js-slide {
@@ -37,8 +37,6 @@
 }
 
 .js-random-characters-img {
-  width: 500px;
-  height: 360px;
   object-fit: cover;
   top: 0;
   left: 0;
@@ -120,13 +118,13 @@
     margin-bottom: 20px;
   }
 
-  .random-characters-img-list {
+  /*   .random-characters-img-list {
     height: 500px;
   }
-
+ */
   .js-random-characters-img {
-    width: 500;
-    height: 500px;
+    width: 100%;
+    height: auto;
   }
   .random-characters-description-list {
     gap: 20px;
