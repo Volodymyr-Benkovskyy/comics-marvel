@@ -26,6 +26,19 @@ const renderRandomImg = data => {
   randomImg.insertAdjacentHTML('beforeend', createRandomImg(data));
 };
 
+/* const createRandomDescr = array => {
+  let data = '';
+  array.forEach(({ name, description, id }, index) => {
+    const isActive = index === 0 ? 'js-active' : '';
+    data += `
+      <li class='js-random-characters-description ${isActive}' data-id="${id}">
+        <h3 class='js-random-characters-title' data-id="${id}">${name}</h3>
+        <p class='js-random-characters-text' data-id="${id}">${description}</p>
+      </li>`;
+  });
+
+  return data;
+}; */
 const createRandomDescr = array => {
   const data = array
     .map(({ name, description, id }) => {
@@ -45,26 +58,25 @@ const renderRandmDescr = data => {
 
 const getRandomCharacters = async () => {
   try {
-    const allCharacters = await api.getCharacters('/characters', {
-      params: {
-        limit: 10,
-        offset: 0,
-      },
-    });
+    const allCharacters = await api.getCharacters('/characters');
+
     let { results } = allCharacters;
-    results = results.filter(({ description, thumbnail: { path } }) => {
-      return description.length && !path.includes('not_available');
+    results = results.filter(({ name, thumbnail: { path } }) => {
+      return name && !path.includes('not_available');
     });
 
     let randomCharactersArray = [];
+    const remainingResults = [...results];
 
-    for (let i = 0; i < 5; i += 1) {
-      const randomIndex = Math.floor(Math.random() * results.length);
-      const randomCharacter = results[randomIndex];
-      if (!randomCharactersArray.includes(randomCharacter)) {
-        randomCharactersArray.push(randomCharacter);
-      }
+    for (let i = 0; i < 5 && remainingResults.length > 0; i++) {
+      const randomIndex = Math.floor(Math.random() * remainingResults.length);
+      const randomCharacter = remainingResults[randomIndex];
+      randomCharactersArray.push(randomCharacter);
+
+      // Видалення обраного елемента з копії масиву
+      remainingResults.splice(randomIndex, 1);
     }
+
     console.log(randomCharactersArray);
     renderRandomImg(randomCharactersArray);
     renderRandmDescr(randomCharactersArray);

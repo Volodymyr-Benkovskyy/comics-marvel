@@ -14,7 +14,7 @@ export const showNextSlide = () => {
     slideDescriptionsArray[i].classList.add('js-random-characters-description');
   }
 
-  imageIndex = (imageIndex + 2) % slideImagesArray.length;
+  imageIndex = (imageIndex + 1) % slideImagesArray.length;
   slideIndex = (slideIndex + 1) % slideDescriptionsArray.length;
 
   slideImagesArray[imageIndex].classList.add('js-show');

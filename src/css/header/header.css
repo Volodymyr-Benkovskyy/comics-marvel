@@ -43,12 +43,13 @@
   padding: 5px 20px 5px 32px;
   background: transparent;
   border: 1px solid var(--font-color);
-  border-radius: 15px;
+  border-bottom: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+  border-radius: 2px;
 }
 
 .header-input::placeholder {
   text-transform: uppercase;
-  color: rgb(238, 87, 87);
 }
 
 @media screen and (min-width: 768px) {
@@ -60,16 +61,19 @@
   .header-input {
     width: 130px;
     font-size: 14px;
-    border-radius: 20px;
+    border-radius: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 3px;
   }
 
   .header-icon-search {
-    width: 20px;
+    width: 15px;
     height: 20px;
     transform: translate(-120px, 3px);
   }
   .header-input::placeholder {
-    color: rgb(238, 87, 87);
+    color: var(--font-color);
     margin-left: 5px;
     text-align: end;
   }

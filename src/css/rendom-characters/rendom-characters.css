@@ -37,7 +37,7 @@
 }
 
 .js-random-characters-img {
-  width: 100%;
+  width: 500px;
   height: 360px;
   object-fit: cover;
   top: 0;
@@ -90,7 +90,10 @@
   line-height: 1.29;
   padding: 7px 12px;
   border: 1px solid var(--font-color);
-  border-radius: 20px;
+  border-radius: 2px;
+  border-bottom: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+
   background-color: transparent;
 }
 
@@ -122,6 +125,7 @@
   }
 
   .js-random-characters-img {
+    width: 500;
     height: 500px;
   }
   .random-characters-description-list {
@@ -154,15 +158,19 @@
   .random-characters-wrapper {
     flex-direction: row;
     margin-bottom: 25px;
+    justify-content: space-between;
   }
   .random-characters-img-list {
+    width: 500px;
     height: 650px;
   }
 
   .js-random-characters-img {
+    width: 500px;
     height: 650px;
   }
   .random-characters-description-list {
+    width: 60%;
     margin-left: 30px;
     padding-top: 0;
     padding-bottom: 0;

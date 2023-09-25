@@ -1,4 +1,4 @@
-const swiper = new Swiper('.section-hero-swiper', {
+const swiperSlideHero = new Swiper('.section-hero-swiper', {
   direction: 'vertical',
   loop: true,
 

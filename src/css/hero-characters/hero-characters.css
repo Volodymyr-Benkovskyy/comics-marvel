@@ -1,5 +1,3 @@
-@import url('../common/vars.css');
-
 .hero-characters {
   padding-top: 40;
   padding-bottom: 40px;
@@ -44,7 +42,8 @@
   margin-bottom: 40px;
   outline: none;
   border: 1px solid var(--font-color);
-  border-radius: 1000px;
+  border-bottom: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
   padding: 10px 20px;
   margin-right: 10px;
   cursor: pointer;
@@ -206,7 +205,7 @@
     width: 2px;
     height: 60px;
     cursor: pointer;
-    background: white;
+    background: var(--font-color);
     margin-bottom: 10px;
     border-radius: 0;
   }
@@ -351,7 +350,7 @@
     width: 355px;
     margin-bottom: 32px;
     background-position: right 118px;
-    background-image: url('../../images/hero-characters-img/line-desktop.png');
+    background-image: url('../../images/hero-characters-img/line-white.png');
   }
 
   .hero-pantera-black-img {
@@ -371,11 +370,12 @@
   .section-hero-swiper {
     height: 780px;
   }
-
+  /* //////////////////////////////////////////// */
   .swiper-vertical > .swiper-pagination-bullets {
     top: 523px;
     left: 80px;
     z-index: 1;
+    width: 4px;
   }
 
   .swiper-pagination-bullet {
