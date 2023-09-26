@@ -1,30 +1,30 @@
-// let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
+/* let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
 
-// // Функція для ініціалізації Swiper
-// function initSwiper() {
-//   const direction =
-//     window.innerWidth < 768 || window.innerWidth >= 1440
-//       ? 'vertical'
-//       : 'horizontal';
+// Функція для ініціалізації Swiper
+function initSwiper() {
+  const direction =
+    window.innerWidth < 768 || window.innerWidth >= 1440
+      ? 'vertical'
+      : 'horizontal';
 
-//   swiperSlideHero ? swiperSlideHero.destroy() : null;
+  swiperSlideHero ? swiperSlideHero.destroy() : null;
 
-//   swiperSlideHero = new Swiper('.section-hero-swiper', {
-//     direction: direction,
-//     loop: false,
-//     pagination: {
-//       el: '.swiper-pagination',
-//       clickable: true,
-//     },
-//     spaceBetween: 50,
-//     slidesPerView: 1,
-//     initialSlide: 0,
-//   });
-// }
+  swiperSlideHero = new Swiper('.section-hero-swiper', {
+    direction: direction,
+    loop: false,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    spaceBetween: 50,
+    slidesPerView: 1,
+    initialSlide: 0,
+  });
+}
 
-// initSwiper();
+initSwiper();
 
-// window.addEventListener('resize', initSwiper);
+window.addEventListener('resize', initSwiper); */
 
 let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
 
@@ -58,7 +58,8 @@ function initSwiper() {
     spaceBetween: 50,
     slidesPerView: 1,
     initialSlide: 0,
-    allowTouchMove: !isMobile, // Забороняємо прокрутку слайдера по екрану на мобільних пристроях
+    allowTouchMove: false,
+    // Забороняємо прокрутку слайдера по екрану на мобільних пристроях
   });
 }
 

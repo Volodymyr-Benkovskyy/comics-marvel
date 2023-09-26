@@ -17,4 +17,5 @@
 <!-- refinement of styles and js slide hero-characters -->
 <!-- created footer html and css -->
 <!-- added check for  'http://','https://' -->
-<!-- add method allowTouchMove: !isMobile - prohibits slide on the screen mobile -->
+<!-- add method allowTouchMove prohibits slide on the screen mobile -->
+<!-- finalizing the slide section hero-characters Swiper -->
