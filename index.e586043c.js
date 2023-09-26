@@ -549,9 +549,32 @@ a._blocksize=16,a._digestsize=16,eH=function(t,e){if(null==t)throw Error("Illega
           <h3  class="header-search-title" data-set="${t.id}">${t.name}</h3>
           </div>
       </li>
-    `).join(""),e8=t=>{e6.insertAdjacentHTML("beforeend",e3(t))},e7=()=>{e6.scrollIntoView({behavior:"smooth"})},e9=()=>{e6.innerHTML=""},rt=async t=>{t.preventDefault();let{target:e}=t,r=e.elements.searchQuery.value;if(e5.reset(),""!==r)try{e1();let t=await eJ.getCharacters({nameStartsWith:r,limit:e4,offset:0});if(0===t.results.length){e2(),e7(),e6.innerHTML='<div class="nothing-seach"></div>';return}e2(),e9(),e8(t.results),e7()}catch(t){location.replace("../error.html"),e2()}};e5.addEventListener("submit",rt);const re=document.querySelector(".header");window.addEventListener("scroll",()=>{0!==scrollY?re.classList.add("js-header-bg"):re.classList.remove("js-header-bg")});let rr=null;// Змінна для зберігання екземпляру Swiper
+    `).join(""),e8=t=>{e6.insertAdjacentHTML("beforeend",e3(t))},e7=()=>{e6.scrollIntoView({behavior:"smooth"})},e9=()=>{e6.innerHTML=""},rt=async t=>{t.preventDefault();let{target:e}=t,r=e.elements.searchQuery.value;if(e5.reset(),""!==r)try{e1();let t=await eJ.getCharacters({nameStartsWith:r,limit:e4,offset:0});if(0===t.results.length){e2(),e7(),e6.innerHTML='<div class="nothing-seach"></div>';return}e2(),e9(),e8(t.results),e7()}catch(t){location.replace("../error.html"),e2()}};e5.addEventListener("submit",rt);const re=document.querySelector(".header");window.addEventListener("scroll",()=>{0!==scrollY?re.classList.add("js-header-bg"):re.classList.remove("js-header-bg")});// let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
+// // Функція для ініціалізації Swiper
+// function initSwiper() {
+//   const direction =
+//     window.innerWidth < 768 || window.innerWidth >= 1440
+//       ? 'vertical'
+//       : 'horizontal';
+//   swiperSlideHero ? swiperSlideHero.destroy() : null;
+//   swiperSlideHero = new Swiper('.section-hero-swiper', {
+//     direction: direction,
+//     loop: false,
+//     pagination: {
+//       el: '.swiper-pagination',
+//       clickable: true,
+//     },
+//     spaceBetween: 50,
+//     slidesPerView: 1,
+//     initialSlide: 0,
+//   });
+// }
+// initSwiper();
+// window.addEventListener('resize', initSwiper);
+let rr=null;// Змінна для зберігання екземпляру Swiper
 // Функція для ініціалізації Swiper
-function rn(){let t=window.innerWidth<768||window.innerWidth>=1440?"vertical":"horizontal";rr&&rr.destroy(),rr=new Swiper(".section-hero-swiper",{direction:t,loop:!1,pagination:{el:".swiper-pagination",clickable:!0},spaceBetween:50,slidesPerView:1,initialSlide:0})}rn(),window.addEventListener("resize",rn);const ri=document.querySelector(".swiper-pagination"),ro=document.querySelector(".js-btn-color");ri.addEventListener("click",t=>{let{target:e}=t,r=e.getAttribute("aria-label"),n="";"Go to slide 1"===r?(n="#600404",ro.style.background=n):"Go to slide 2"===r?(n="#34387f",ro.style.background=n):"Go to slide 3"===r&&(n="#5b7f3c",ro.style.background=n)});const rs=document.querySelector(".js-random-img"),ra=document.querySelector(".js-random-descr"),rl=t=>{let e=t.map(({id:t,thumbnail:e,name:r})=>`  <li class= "js-slide js-random-characters-img" data-id="${t}">
+function rn(){let t=window.innerWidth<768,e=window.innerWidth>=768&&window.innerWidth<1024,r=window.innerWidth>=1440,n="vertical";t?n="vertical":e?n="horizontal":r&&(n="vertical"),// Ініціалізація Swiper
+rr&&rr.destroy(),rr=new Swiper(".section-hero-swiper",{direction:n,loop:!1,pagination:{el:".swiper-pagination",clickable:!0},spaceBetween:50,slidesPerView:1,initialSlide:0,allowTouchMove:!t})}rn(),window.addEventListener("resize",rn);const ri=document.querySelector(".swiper-pagination"),ro=document.querySelector(".js-btn-color");ri.addEventListener("click",t=>{let{target:e}=t,r=e.getAttribute("aria-label"),n="";"Go to slide 1"===r?(n="#600404",ro.style.background=n):"Go to slide 2"===r?(n="#34387f",ro.style.background=n):"Go to slide 3"===r&&(n="#5b7f3c",ro.style.background=n)});const rs=document.querySelector(".js-random-img"),ra=document.querySelector(".js-random-descr"),rl=t=>{let e=t.map(({id:t,thumbnail:e,name:r})=>`  <li class= "js-slide js-random-characters-img" data-id="${t}">
       <picture>
       <source media="(min-width: 1440px)"
                   srcset="${e.path}.${e.extension}" />
@@ -580,6 +603,6 @@ r.forEach(t=>{t.thumbnail.path.startsWith("https://")||(t.thumbnail.path=t.thumb
       <h3 class="last-comics-title" data-id="${t}">${r}</h3>
       <p class= "last-comics-creator" data-id="${t}">${n.items[0].name}</p>
     </li>`).join("");return e},rE=t=>{rb.insertAdjacentHTML("beforeend",rw(t))},rv=async()=>{try{let t=await eJ.getComics({limit:3,dateDescriptor:"lastWeek"});// Перевірка HTTPS для зображень у відповіді
-t.results.forEach(t=>{t.thumbnail.path.startsWith("https://")||(t.thumbnail.path=t.thumbnail.path.replace("http://","https://"))}),rE(t.results)}catch(t){console.log(t)}};rv(),new Swiper(".section-comics-swiper",{slidesPerView:1,spaceBetween:15,scrollbar:{el:".swiper-scrollbar",draggable:!0},breakpoints:{375:{slidesPerView:1},768:{slidesPerView:1.5},1440:{slidesPerView:3,init:!1}}});//# sourceMappingURL=index.54c65194.js.map
+t.results.forEach(t=>{t.thumbnail.path.startsWith("https://")||(t.thumbnail.path=t.thumbnail.path.replace("http://","https://"))}),rE(t.results)}catch(t){console.log(t)}};rv(),new Swiper(".section-comics-swiper",{slidesPerView:1,spaceBetween:15,scrollbar:{el:".swiper-scrollbar",draggable:!0},breakpoints:{375:{slidesPerView:1},768:{slidesPerView:1.5},1440:{slidesPerView:3,init:!1}}});//# sourceMappingURL=index.e586043c.js.map
 
-//# sourceMappingURL=index.54c65194.js.map
+//# sourceMappingURL=index.e586043c.js.map
