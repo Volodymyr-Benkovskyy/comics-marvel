@@ -16,3 +16,4 @@
 <!-- fix slide hero-characters -->
 <!-- refinement of styles and js slide hero-characters -->
 <!-- created footer html and css -->
+<!-- added check for  'http://','https://' -->

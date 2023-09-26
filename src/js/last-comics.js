@@ -35,6 +35,16 @@ const getRandomComics = async () => {
       dateDescriptor: 'lastWeek',
     });
 
+    // Перевірка HTTPS для зображень у відповіді
+    response.results.forEach(comic => {
+      if (!comic.thumbnail.path.startsWith('https://')) {
+        comic.thumbnail.path = comic.thumbnail.path.replace(
+          'http://',
+          'https://'
+        );
+      }
+    });
+
     renderLastComics(response.results);
   } catch (error) {
     console.log(error);
