@@ -13,3 +13,5 @@
 <!-- created function js-slide section  random characters -->
 <!-- fix js-slide style rendom-characters, and create section last-comics html -->
 <!-- created function getRandomComics, add  slide Swiper -->
+<!-- fix slide hero-characters -->
+<!-- refinement of styles and js slide hero-characters -->

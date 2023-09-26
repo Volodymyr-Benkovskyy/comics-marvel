@@ -1,27 +1,30 @@
-const swiperSlideHero = new Swiper('.section-hero-swiper', {
-  direction: 'vertical',
-  loop: true,
+let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
 
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  spaceBetween: 50,
-  slidesPerView: 1,
+// Функція для ініціалізації Swiper
+function initSwiper() {
+  const direction =
+    window.innerWidth < 768 || window.innerWidth >= 1440
+      ? 'vertical'
+      : 'horizontal';
 
-  initialSlide: 0,
-  breakpoints: {
-    320: {
-      direction: 'vertical',
+  swiperSlideHero ? swiperSlideHero.destroy() : null;
+
+  swiperSlideHero = new Swiper('.section-hero-swiper', {
+    direction: direction,
+    loop: false,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
     },
-    768: {
-      direction: 'horizontal',
-    },
-    1440: {
-      direction: 'vertical',
-    },
-  },
-});
+    spaceBetween: 50,
+    slidesPerView: 1,
+    initialSlide: 0,
+  });
+}
+
+initSwiper();
+
+window.addEventListener('resize', initSwiper);
 
 const swiperaPagination = document.querySelector('.swiper-pagination');
 const btnColor = document.querySelector('.js-btn-color');
