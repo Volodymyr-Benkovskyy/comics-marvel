@@ -1,4 +1,4 @@
-let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
+/* let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
 
 // Функція для ініціалізації Swiper
 function initSwiper() {
@@ -25,8 +25,8 @@ function initSwiper() {
 initSwiper();
 
 window.addEventListener('resize', initSwiper);
-
-const swiperaPagination = document.querySelector('.swiper-pagination');
+ */
+/* const swiperaPagination = document.querySelector('.swiper-pagination');
 const btnColor = document.querySelector('.js-btn-color');
 
 const onSwiper = event => {
@@ -46,5 +46,4 @@ const onSwiper = event => {
   }
 };
 
-swiperaPagination.addEventListener('click', onSwiper);
-/* swiperSlideHero */
+swiperaPagination.addEventListener('click', onSwiper); */

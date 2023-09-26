@@ -80,7 +80,7 @@ const getRandomCharacters = async () => {
 };
 getRandomCharacters();
 
-let slideImagesArray = null;
+let slideImagesArray = [];
 let slideDescriptionsArray = null;
 
 let slideIndex = 0;
