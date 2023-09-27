@@ -1,0 +1,67 @@
+<section
+  class="characters-sort-section js-characters-sort-section"
+  id="characters-list"
+>
+  <div class="container">
+    <form class="characters-sort-form js-characters-sort-form">
+      <div class="characters-sort-form-block characters-sort-btn-block">
+        <label class="characters-sort-label">Comics</label>
+
+        <input
+          class="characters-sort-input js-chararcters-comics-input"
+          name="searchComics"
+          type="text"
+          placeholder="Enter text"
+          autocomplete="off"
+          required
+        />
+        <button class="characters-sort-btn" type="submit">
+          <svg class="characters-sort-icon-search characters-sort-icon-svg">
+            <use href="./images/sprite/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="characters-sort-form-block">
+        <lable class="characters-sort-label">Name Starts With</lable>
+        <input
+          class="characters-sort-input js-chararcters-name-input"
+          name="searchName"
+          type="text"
+          placeholder="Enter text"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="characters-sort-form-wrapper">
+        <div class="characters-sort-form-block">
+          <label class="characters-sort-label">Order by</label>
+          <select
+            class="characters-sort-input characters-sort-select js-characters-select-order"
+            name="selectOrder"
+          >
+            <option>Name</option>
+            <option>Modified</option>
+          </select>
+        </div>
+
+        <div class="characters-sort-form-block">
+          <label class="characters-sort-label">Date</label>
+          <input
+            class="characters-sort-input characters-sort-select-date"
+            type="text"
+            data-input
+            name="selectedDate"
+            id="calendar"
+          />
+        </div>
+      </div>
+    </form>
+
+    <ul class="characters-sort-list js-characters-sort-container"></ul>
+    <div id="loader-container" class="loader-container">
+      <div class="loader"></div>
+    </div>
+    <div class="tui-pagination is-hidden"></div>
+  </div>
+</section>
