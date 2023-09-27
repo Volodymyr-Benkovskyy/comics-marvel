@@ -1,6 +1,6 @@
 import { api } from './apiMarvel';
-import { getItemsPerPage } from './helpers/getItemsPerPage';
-import { showLoader, hideLoader } from './helpers/loader';
+import { getItemsPerPage } from '../helpers/getItemsPerPage';
+import { showLoader, hideLoader } from '../helpers/loader';
 
 const galleryHero = document.querySelector('.js-header-search');
 const formSearch = document.querySelector('.js-header-form');

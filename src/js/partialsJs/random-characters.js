@@ -63,7 +63,7 @@ const getRandomCharacters = async () => {
       remainingResults.splice(randomIndex, 1);
     }
 
-    // Ваша логіка для перевірки HTTPS і зміни URL тут
+    //  логіка для перевірки HTTPS і зміни URL тут
     randomCharactersArray.forEach(character => {
       if (!character.thumbnail.path.startsWith('https://')) {
         character.thumbnail.path = character.thumbnail.path.replace(

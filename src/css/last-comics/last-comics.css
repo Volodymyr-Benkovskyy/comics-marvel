@@ -1,6 +1,7 @@
 .last-comics-section {
   padding-top: 40px;
   padding-bottom: 40px;
+  position: relative;
 }
 
 .last-comics-section-title {
@@ -40,7 +41,9 @@ p.last-comics-creator {
 .swiper-horizontal > .swiper-scrollbar,
 .swiper-scrollbar.swiper-scrollbar-horizontal {
   background-color: var(--primary-color);
+  bottom: 20px;
 }
+
 @media screen and (min-width: 768px) {
   .last-comics-section {
     padding-top: 60px;

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import getHash from './helpers/getHash';
+import getHash from '../helpers/getHash';
 
 const BASE_URL = 'https://gateway.marvel.com/v1/public';
 const PUBLIC_KEY = 'efe513042744199e2ee71f94d9988717';

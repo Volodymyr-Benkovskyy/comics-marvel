@@ -19,3 +19,4 @@
 <!-- added check for  'http://','https://' -->
 <!-- add method allowTouchMove prohibits slide on the screen mobile -->
 <!-- finalizing the slide section hero-characters Swiper -->
+<!-- add section home-characters html, css, image, header, footer -->
