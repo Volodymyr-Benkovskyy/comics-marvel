@@ -120,27 +120,22 @@
 }
 
 .tui-pagination .tui-page-btn {
-  color: var(--font-color);
-  margin-right: 5px;
-  border: 1px solid var(--primary-color);
+  color: var(--font-color) !important;
+  margin-right: 5px !important;
+  border: 1px solid var(--primary-color) !important;
 }
 
 .tui-pagination .tui-page-btn:hover {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
 }
 
-.tui-pagination .tui-is-selected {
-  background-color: var(--primary-color);
-}
-
-.tui-pagination .tui-next-is-ellip,
-.tui-pagination .tui-first + .tui-prev,
-.tui-pagination .tui-next + .tui-last {
-  border-left: 1px solid var(--primary-color);
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  background-color: var(--primary-color) !important;
 }
 
 .tui-pagination .tui-next {
-  margin-left: 0px;
+  margin-left: 0px !important;
 }
 
 @media screen and (min-width: 768px) {

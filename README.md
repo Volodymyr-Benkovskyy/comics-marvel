@@ -24,3 +24,4 @@
 <!-- add function getComics sort-characters.js -->
 <!-- add function fetchAndRenderCharacterList,createSortContainer  -->
 <!-- added function onSearchComics and  onSearchName  -->
+<!-- add function  onSearchNameAndSelectDate  -->

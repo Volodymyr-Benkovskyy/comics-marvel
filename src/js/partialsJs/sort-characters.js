@@ -4,6 +4,7 @@ import { getItemsPerPage } from '../helpers/getItemsPerPage.js';
 import debounce from 'lodash.debounce';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import flatpickr from 'flatpickr';
 
 const sortContainer = document.querySelector('.js-characters-sort-container');
 const formSearchFilter = document.querySelector('.js-characters-sort-form');
@@ -17,6 +18,21 @@ const inputHeaderEl = document.querySelector('.js-header-chararcters-input');
 let idComics = [];
 let itemsPerPage = null;
 let queryName = null;
+let queryOrder = null;
+let dateQuery = null;
+let arrayIdComics = null;
+
+flatpickr('#calendar', {
+  dateFormat: 'd.m.Y',
+  defaultDate: 'today',
+  disableMobile: true,
+  onChange(selectedDates) {
+    const selectedDate = selectedDates[0];
+    dateQuery = selectedDate;
+    onSearchNameAndSelectDate(selectedDate);
+  },
+});
+
 itemsPerPage = getItemsPerPage();
 
 const createSortContainer = data => {
@@ -83,8 +99,11 @@ const fetchAndRenderCharacterList = async () => {
         showLoader();
         const newResponse = await api.getCharacters({
           offset: offset,
+          orderBy: queryOrder,
           limit: itemsPerPage,
+          comics: arrayIdComics,
           nameStartsWith: queryName,
+          modifiedSince: dateQuery,
         });
 
         hideLoader();
@@ -99,21 +118,14 @@ const fetchAndRenderCharacterList = async () => {
     console.log(error);
   }
 };
+
 fetchAndRenderCharacterList();
 
-/* ////////////////////    / RANDOM  /  ////////////////////////////// */
-
-/* ////////////////     SEARCH-INPUT-COMICS   //////////////////////////////////// */
-const onSearchComics = async event => {
+const onSubmitSearchComics = async event => {
   showLoader();
   event.preventDefault();
   const { target: formEl } = event;
   queryComics = formEl.elements.searchComics.value;
-
-  idComics = [];
-  queryName = null;
-  queryOrder = null;
-  dateQuery = null;
 
   try {
     const response = await api.getComics({
@@ -124,13 +136,13 @@ const onSearchComics = async event => {
 
     if (response.total === 0) {
       hideLoader();
-
+      sortContainer.innerHTML = '<div class="nothing-seach"></div>';
       inputComicsEl.value = '';
       boxPagination.classList.add('is-hidden');
       return;
     }
 
-    const limitedResults = response.results.slice(0, 10);
+    const limitedResults = response.results;
     limitedResults.map(el => {
       if (el.characters.available) {
         idComics.push(el.id);
@@ -143,14 +155,17 @@ const onSearchComics = async event => {
 
     try {
       const response = await api.getCharacters({
-        nameStartsWith: queryName,
-        comics: arrayIdComics,
+        offset: 0,
+        orderBy: queryOrder,
         limit: itemsPerPage,
+        comics: arrayIdComics,
+        nameStartsWith: queryName,
+        modifiedSince: dateQuery,
       });
 
       if (response.length === 0) {
+        sortContainer.innerHTML = '<div class="nothing-seach"></div>';
         boxPagination.classList.add('is-hidden');
-
         return;
       }
       hideLoader();
@@ -158,9 +173,7 @@ const onSearchComics = async event => {
       pagination.reset(response.total);
       renderSortContainerList(response.results);
       boxPagination.classList.remove('is-hidden');
-
       inputComicsEl.value = '';
-      console.log('onSearchComics => getCharacters', response);
     } catch (error) {
       console.log('Error!', error);
     }
@@ -170,43 +183,52 @@ const onSearchComics = async event => {
   }
 };
 
-formSearchFilter.addEventListener('submit', onSearchComics);
+formSearchFilter.addEventListener('submit', onSubmitSearchComics);
 
-/* ////////////////    / SEARCH-INPUT-COMICS  /   //////////////////////////////////// */
+/* //////////////////////// NAME ////////////////////////// */
 
-/* ///////////////////   SEARCH-NAME  ///////////////////////////////////// */
-
-const onSearchName = async event => {
-  boxPagination.classList.add('is-hidden');
-  queryName = event.target.value;
-
+const onSearchNameAndSelectDate = async (event, selectedDate) => {
+  if (event.target === inputNameEl) {
+    queryName = event.target.value;
+  } else if (event.target === selectOrderEl) {
+    queryOrder = event.target.value.toLowerCase();
+  } else if (selectedDate) {
+    dateQuery = selectedDate;
+  }
   try {
     showLoader();
     const response = await api.getCharacters({
       offset: 0,
+      orderBy: queryOrder,
       limit: itemsPerPage,
+      comics: arrayIdComics,
       nameStartsWith: queryName,
+      modifiedSince: dateQuery,
     });
-
+    console.log(' onSearchNameAndSelect =>', response);
     if (response.total === 0) {
       hideLoader();
+      sortContainer.innerHTML = '<div class="nothing-seach"></div>';
       boxPagination.classList.add('is-hidden');
       return;
     }
-
-    console.log('onSearchName =>response', response);
     hideLoader();
-
     pagination.reset(response.total);
     clearSortContainer();
     renderSortContainerList(response.results);
     boxPagination.classList.remove('is-hidden');
-    inputNameEl.value = '';
+
+    if (inputNameEl) {
+      inputNameEl.innerHTML = '';
+    }
   } catch (error) {
+    // location.replace('../error.html');
     console.log('Error!', error);
   }
 };
 
-inputNameEl.addEventListener('input', debounce(onSearchName, 2000));
-
-/* ////////////////    /SEARCH-NAME  /   //////////////////////////////////// */
+inputNameEl.addEventListener(
+  'input',
+  debounce(onSearchNameAndSelectDate, 2500)
+);
+selectOrderEl.addEventListener('change', onSearchNameAndSelectDate);
