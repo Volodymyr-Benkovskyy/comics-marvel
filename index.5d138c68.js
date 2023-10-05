@@ -8,7 +8,7 @@
           <h3  class="header-search-title" data-set="${e.id}">${e.name}</h3>
           </div>
       </li>
-    `).join(""),h=e=>{n.insertAdjacentHTML("beforeend",d(e))},m=()=>{n.scrollIntoView({behavior:"smooth"})},p=()=>{n.innerHTML=""},u=async e=>{e.preventDefault();let{target:t}=e,a=t.elements.searchQuery.value;if(o.reset(),""!==a)try{(0,l.showLoader)();let e=await (0,i.api).getCharacters({nameStartsWith:a,limit:c,offset:0});if(0===e.results.length){(0,l.hideLoader)(),m(),n.innerHTML='<div class="nothing-seach"></div>';return}(0,l.hideLoader)(),p(),h(e.results),m()}catch(e){location.replace("../error.html"),(0,l.hideLoader)()}};o.addEventListener("submit",u);let w=document.querySelector(".header");window.addEventListener("scroll",()=>{0!==scrollY?w.classList.add("js-header-bg"):w.classList.remove("js-header-bg")});/* let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
+    `).join(""),h=e=>{n.insertAdjacentHTML("beforeend",d(e))},m=()=>{n.scrollIntoView({behavior:"smooth"})},p=()=>{n.innerHTML=""},u=async e=>{e.preventDefault();let{target:t}=e,a=t.elements.searchQuery.value;if(o.reset(),""!==a)try{(0,l.showLoader)();let e=await (0,i.api).getCharacters({nameStartsWith:a,limit:c,offset:0});if(0===e.results.length){(0,l.hideLoader)(),m(),n.innerHTML='<div class="nothing-seach"></div>';return}(0,l.hideLoader)(),p(),h(e.results),m()}catch(e){location.replace("../error.html"),(0,l.hideLoader)()}};o.addEventListener("submit",u);let w=document.querySelector(".header");window.addEventListener("scroll",()=>{0===scrollY?w.classList.add("js-header-bg"):w.classList.remove("js-header-bg")});/* let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
 
 // Функція для ініціалізації Swiper
 function initSwiper() {
@@ -66,6 +66,6 @@ a.forEach(e=>{e.thumbnail.path.startsWith("https://")||(e.thumbnail.path=e.thumb
       <h3 class="last-comics-title" data-id="${e}">${a}</h3>
       <p class= "last-comics-creator" data-id="${e}">${s.items[0].name}</p>
     </li>`).join("");return t},V=e=>{A.insertAdjacentHTML("beforeend",P(e))},H=async()=>{try{let e=await (0,i.api).getComics({limit:3,dateDescriptor:"lastWeek"});// Перевірка HTTPS для зображень у відповіді
-e.results.forEach(e=>{e.thumbnail.path.startsWith("https://")||(e.thumbnail.path=e.thumbnail.path.replace("http://","https://"))}),V(e.results)}catch(e){console.log(e)}};H(),new Swiper(".section-comics-swiper",{slidesPerView:1,spaceBetween:15,scrollbar:{el:".swiper-scrollbar",draggable:!0},breakpoints:{375:{slidesPerView:1},768:{slidesPerView:1.5},1440:{slidesPerView:3,init:!1}}})}();//# sourceMappingURL=index.10ffb7c3.js.map
+e.results.forEach(e=>{e.thumbnail.path.startsWith("https://")||(e.thumbnail.path=e.thumbnail.path.replace("http://","https://"))}),V(e.results)}catch(e){console.log(e)}};H(),new Swiper(".section-comics-swiper",{slidesPerView:1,spaceBetween:15,scrollbar:{el:".swiper-scrollbar",draggable:!0},breakpoints:{375:{slidesPerView:1},768:{slidesPerView:1.5},1440:{slidesPerView:3,init:!1}}})}();//# sourceMappingURL=index.5d138c68.js.map
 
-//# sourceMappingURL=index.10ffb7c3.js.map
+//# sourceMappingURL=index.5d138c68.js.map
