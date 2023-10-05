@@ -8,12 +8,9 @@ import flatpickr from 'flatpickr';
 
 const sortContainer = document.querySelector('.js-characters-sort-container');
 const formSearchFilter = document.querySelector('.js-characters-sort-form');
-const listScroll = document.getElementById('characters-list');
 const inputComicsEl = document.querySelector('.js-chararcters-comics-input');
 const selectOrderEl = document.querySelector('.js-characters-select-order');
 const inputNameEl = document.querySelector('.js-chararcters-name-input');
-const formHeaderEl = document.querySelector('.js-header-chararcters-name');
-const inputHeaderEl = document.querySelector('.js-header-chararcters-input');
 
 let idComics = [];
 let itemsPerPage = null;
@@ -187,7 +184,7 @@ formSearchFilter.addEventListener('submit', onSubmitSearchComics);
 
 /* //////////////////////// NAME ////////////////////////// */
 
-const onSearchNameAndSelectDate = async (event, selectedDate) => {
+export const onSearchNameAndSelectDate = async (event, selectedDate) => {
   if (event.target === inputNameEl) {
     queryName = event.target.value;
   } else if (event.target === selectOrderEl) {
@@ -229,6 +226,6 @@ const onSearchNameAndSelectDate = async (event, selectedDate) => {
 
 inputNameEl.addEventListener(
   'input',
-  debounce(onSearchNameAndSelectDate, 2500)
+  debounce(onSearchNameAndSelectDate, 2000)
 );
 selectOrderEl.addEventListener('change', onSearchNameAndSelectDate);

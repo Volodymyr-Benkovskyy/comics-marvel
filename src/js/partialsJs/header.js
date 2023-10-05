@@ -38,7 +38,7 @@ const clearGalleryHero = () => {
   galleryHero.innerHTML = '';
 };
 
-const onSearchInputSubmit = async event => {
+export const onSearchInputSubmit = async event => {
   event.preventDefault();
   const { target: formEl } = event;
   let query = formEl.elements.searchQuery.value;
@@ -76,7 +76,7 @@ formSearch.addEventListener('submit', onSearchInputSubmit);
 const headerScroll = document.querySelector('.header');
 
 const onHeaderScroll = () => {
-  if (scrollY !== 0) {
+  if (scrollY === 0) {
     headerScroll.classList.add('js-header-bg');
   } else {
     headerScroll.classList.remove('js-header-bg');

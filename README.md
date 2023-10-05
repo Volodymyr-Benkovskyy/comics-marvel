@@ -25,3 +25,4 @@
 <!-- add function fetchAndRenderCharacterList,createSortContainer  -->
 <!-- added function onSearchComics and  onSearchName  -->
 <!-- add function  onSearchNameAndSelectDate  -->
+<!-- add function scrolHeaderCharacters -->
