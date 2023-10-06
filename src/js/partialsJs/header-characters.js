@@ -1,27 +1,70 @@
-import debounce from 'lodash.debounce';
+import { api } from './apiMarvel';
+import { getItemsPerPage } from '../helpers/getItemsPerPage';
+import { showLoader, hideLoader } from '../helpers/loader';
+import { renderSortContainerList, clearSortContainer } from './sort-characters';
+const galleryHero = document.querySelector('.js-header-search-characters');
+const formSearch = document.querySelector('.js-header-form-characters');
 
-const inputHeaderEl = document.querySelector('.js-header-chararcters-input');
-const listScroll = document.getElementById('characters-list');
+let itemsPerPage = null;
+
+itemsPerPage = getItemsPerPage();
+
+/*   const scrollHeaderSearch = () => {
+  galleryHero.scrollIntoView({ behavior: 'smooth' });
+};  */
+
+const clearScrollCharPerPage = () => {
+  galleryHero.innerHTML = '';
+};
 
 const scrollCharPerPage = () => {
-  listScroll.scrollIntoView({ behavior: 'smooth' });
+  galleryHero.scrollIntoView({ behavior: 'smooth' });
 };
 
-const scrolHeaderCharacters = () => {
-  inputHeaderEl.value = '';
-  scrollCharPerPage();
-};
+export const onSearchInputSubmitCharacters = async event => {
+  event.preventDefault();
+  const { target: formEl } = event;
+  let query = formEl.elements.searchQuery.value;
+  formSearch.reset();
 
-inputHeaderEl.addEventListener('input', debounce(scrolHeaderCharacters, 200));
+  if (query !== '') {
+    try {
+      showLoader();
+      const response = await api.getCharacters({
+        nameStartsWith: query,
+        limit: itemsPerPage,
+        offset: 0,
+      });
 
-const headerScroll = document.querySelector('.header');
+      if (response.total === 0) {
+        hideLoader();
 
-const onHeaderCharactersScroll = () => {
-  if (scrollY !== 0) {
-    headerScroll.classList.add('js-header-bg');
-  } else {
-    headerScroll.classList.remove('js-header-bg');
+        return;
+      }
+      hideLoader();
+      scrollCharPerPage();
+      clearSortContainer();
+      renderSortContainerList(response.results);
+      //clearScrollCharPerPage();
+      //formSearch.innerHTML = '';
+    } catch (error) {
+      location.replace('../error.html');
+
+      hideLoader();
+    }
   }
 };
 
-window.addEventListener('scroll', onHeaderCharactersScroll);
+formSearch.addEventListener('submit', onSearchInputSubmitCharacters);
+
+const headerScroll = document.querySelector('.header-characters');
+
+export const onHeaderScrollCharacters = () => {
+  if (scrollY !== 0) {
+    headerScroll.classList.add('js-header-bg-characters');
+  } else {
+    headerScroll.classList.remove('js-header-bg-characters');
+  }
+};
+
+window.addEventListener('scroll', onHeaderScrollCharacters);

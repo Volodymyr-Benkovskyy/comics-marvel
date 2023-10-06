@@ -11,6 +11,8 @@ const formSearchFilter = document.querySelector('.js-characters-sort-form');
 const inputComicsEl = document.querySelector('.js-chararcters-comics-input');
 const selectOrderEl = document.querySelector('.js-characters-select-order');
 const inputNameEl = document.querySelector('.js-chararcters-name-input');
+//const formHeaderEl = document.querySelector('.js-header-chararcters-name');
+//const inputHeaderEl = document.querySelector('.js-header-chararcters-input');
 
 let idComics = [];
 let itemsPerPage = null;
@@ -52,11 +54,11 @@ const createSortContainer = data => {
     .join('');
 };
 
-const clearSortContainer = () => {
+export const clearSortContainer = () => {
   sortContainer.innerHTML = '';
 };
 
-const renderSortContainerList = data => {
+export const renderSortContainerList = data => {
   sortContainer.insertAdjacentHTML('beforeend', createSortContainer(data));
 };
 

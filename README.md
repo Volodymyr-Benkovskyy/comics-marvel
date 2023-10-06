@@ -26,3 +26,4 @@
 <!-- added function onSearchComics and  onSearchName  -->
 <!-- add function  onSearchNameAndSelectDate  -->
 <!-- add function scrolHeaderCharacters -->
+<!-- add section header-characters -->
