@@ -1,5 +1,3 @@
-@import url('../common/vars.css');
-
 .header {
   position: sticky;
   top: 0px;
@@ -62,19 +60,21 @@
     width: 130px;
     font-size: 14px;
     border-radius: 2px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 3px;
+    padding: 5px 10px;
+  }
+
+  .header-input:focus {
+    width: 200px;
   }
 
   .header-icon-search {
     width: 15px;
     height: 20px;
-    transform: translate(-120px, 3px);
+    transform: translate(-30px, 3px);
   }
   .header-input::placeholder {
     color: var(--font-color);
     margin-left: 5px;
-    text-align: end;
+    text-align: center;
   }
 }

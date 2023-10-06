@@ -1,0 +1,11 @@
+@import url('/node_modules/modern-normalize/modern-normalize.css');
+@import url('./css/header/header.css');
+@import url('./css/common/reset.css');
+@import url('./css/common/vars.css');
+@import url('./css/hero-characters/hero-characters.css');
+@import url('./css/header-search/header-search.css');
+@import url('./css/nothing-search/nothing-search.css');
+@import url('./css/loader/loader.css');
+@import url('./css/random-characters/random-characters.css');
+@import url('./css/last-comics/last-comics.css');
+@import url('./css/footer/footer.css');

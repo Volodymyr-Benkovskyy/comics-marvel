@@ -1,31 +1,28 @@
 import { api } from './apiMarvel';
 import { getItemsPerPage } from '../helpers/getItemsPerPage';
 import { showLoader, hideLoader } from '../helpers/loader';
-import { renderSortContainerList, clearSortContainer } from './sort-characters';
-const galleryHero = document.querySelector('.js-header-search-characters');
-const formSearch = document.querySelector('.js-header-form-characters');
+import { renderSortContainerList } from './sort-characters';
+
+const galleryHeroCharacters = document.querySelector(
+  '.js-header-search-characters'
+);
+const formSearchCharacters = document.querySelector(
+  '.js-header-form-characters'
+);
 
 let itemsPerPage = null;
 
 itemsPerPage = getItemsPerPage();
 
-/*   const scrollHeaderSearch = () => {
-  galleryHero.scrollIntoView({ behavior: 'smooth' });
-};  */
-
-const clearScrollCharPerPage = () => {
-  galleryHero.innerHTML = '';
-};
-
-const scrollCharPerPage = () => {
-  galleryHero.scrollIntoView({ behavior: 'smooth' });
+const ScrollCharacters = () => {
+  galleryHeroCharacters.scrollIntoView({ behavior: 'smooth' });
 };
 
 export const onSearchInputSubmitCharacters = async event => {
   event.preventDefault();
   const { target: formEl } = event;
   let query = formEl.elements.searchQuery.value;
-  formSearch.reset();
+  formSearchCharacters.reset();
 
   if (query !== '') {
     try {
@@ -42,11 +39,8 @@ export const onSearchInputSubmitCharacters = async event => {
         return;
       }
       hideLoader();
-      scrollCharPerPage();
-      clearSortContainer();
+      ScrollCharacters();
       renderSortContainerList(response.results);
-      //clearScrollCharPerPage();
-      //formSearch.innerHTML = '';
     } catch (error) {
       location.replace('../error.html');
 
@@ -55,7 +49,7 @@ export const onSearchInputSubmitCharacters = async event => {
   }
 };
 
-formSearch.addEventListener('submit', onSearchInputSubmitCharacters);
+formSearchCharacters.addEventListener('submit', onSearchInputSubmitCharacters);
 
 const headerScroll = document.querySelector('.header-characters');
 
