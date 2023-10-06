@@ -29,3 +29,4 @@
 <!-- add section header-characters -->
 <!-- fix styles header -->
 <!-- add function onScrollBtn  -->
+<!-- fix slide swiper -->

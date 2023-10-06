@@ -1,32 +1,4 @@
-/* let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
-
-// Функція для ініціалізації Swiper
-function initSwiper() {
-  const direction =
-    window.innerWidth < 768 || window.innerWidth >= 1440
-      ? 'vertical'
-      : 'horizontal';
-
-  swiperSlideHero ? swiperSlideHero.destroy() : null;
-
-  swiperSlideHero = new Swiper('.section-hero-swiper', {
-    direction: direction,
-    loop: false,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    spaceBetween: 50,
-    slidesPerView: 1,
-    initialSlide: 0,
-  });
-}
-
-initSwiper();
- && window.innerWidth < 1024
-window.addEventListener('resize', initSwiper); */
-
-let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
+let swiperSlideHero = null;
 
 // Функція для ініціалізації Swiper
 function initSwiper() {
@@ -34,7 +6,6 @@ function initSwiper() {
   const isTablet = window.innerWidth >= 768 && window.innerWidth <= 1024;
   const isDesktop = window.innerWidth >= 1440;
 
-  // Визначення напрямку слайдера
   let direction = 'vertical'; // За замовчуванням вертикальний
 
   if (isMobile) {
@@ -50,7 +21,7 @@ function initSwiper() {
 
   swiperSlideHero = new Swiper('.section-hero-swiper', {
     direction: direction,
-    loop: false,
+    loop: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -58,7 +29,7 @@ function initSwiper() {
     spaceBetween: 50,
     slidesPerView: 1,
     initialSlide: 0,
-    allowTouchMove: false,
+    // allowTouchMove: false,
     // Забороняємо прокрутку слайдера по екрану на мобільних пристроях
   });
 }

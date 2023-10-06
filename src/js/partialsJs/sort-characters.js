@@ -204,7 +204,7 @@ export const onSearchNameAndSelectDate = async (event, selectedDate) => {
       nameStartsWith: queryName,
       modifiedSince: dateQuery,
     });
-    console.log(' onSearchNameAndSelect =>', response);
+
     if (response.total === 0) {
       hideLoader();
       sortContainer.innerHTML = '<div class="nothing-seach"></div>';
