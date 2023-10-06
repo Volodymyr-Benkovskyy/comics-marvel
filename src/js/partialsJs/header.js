@@ -2,6 +2,7 @@ import { api } from './apiMarvel';
 import { getItemsPerPage } from '../helpers/getItemsPerPage.js';
 import { showLoader, hideLoader } from '../helpers/loader.js';
 
+const jsScrolHeaderSearch = document.querySelector('.js-scrol-header-search');
 const galleryHero = document.querySelector('.js-header-search');
 const formSearch = document.querySelector('.js-header-form');
 let itemsPerPage = null;
@@ -35,7 +36,8 @@ const renderGalleryHero = data => {
 };
 
 const scrollHeaderSearch = () => {
-  galleryHero.scrollIntoView({ behavior: 'smooth' });
+  jsScrolHeaderSearch.classList.add('js-header-search-top');
+  jsScrolHeaderSearch.scrollIntoView({ behavior: 'smooth' });
 };
 
 const onSearchInputSubmit = async event => {

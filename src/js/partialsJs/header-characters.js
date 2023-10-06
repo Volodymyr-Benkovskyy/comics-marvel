@@ -1,7 +1,7 @@
 import { api } from './apiMarvel';
 import { getItemsPerPage } from '../helpers/getItemsPerPage';
 import { showLoader, hideLoader } from '../helpers/loader';
-import { renderSortContainerList } from './sort-characters';
+import { renderSortContainerList, clearSortContainer } from './sort-characters';
 
 const galleryHeroCharacters = document.querySelector(
   '.js-header-search-characters'
@@ -18,7 +18,7 @@ const ScrollCharacters = () => {
   galleryHeroCharacters.scrollIntoView({ behavior: 'smooth' });
 };
 
-export const onSearchInputSubmitCharacters = async event => {
+const onSearchInputSubmitCharacters = async event => {
   event.preventDefault();
   const { target: formEl } = event;
   let query = formEl.elements.searchQuery.value;
@@ -40,6 +40,7 @@ export const onSearchInputSubmitCharacters = async event => {
       }
       hideLoader();
       ScrollCharacters();
+      clearSortContainer();
       renderSortContainerList(response.results);
     } catch (error) {
       location.replace('../error.html');

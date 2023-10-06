@@ -1,10 +1,13 @@
 .header-search-list {
-  padding-top: 30px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
   margin-bottom: 30px;
+}
+
+.js-header-search-top {
+  padding-top: 80px;
 }
 
 .header-search-item {

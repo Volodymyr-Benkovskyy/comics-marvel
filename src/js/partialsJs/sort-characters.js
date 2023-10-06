@@ -209,6 +209,7 @@ export const onSearchNameAndSelectDate = async (event, selectedDate) => {
       hideLoader();
       sortContainer.innerHTML = '<div class="nothing-seach"></div>';
       boxPagination.classList.add('is-hidden');
+      dateQuery = null;
       return;
     }
     hideLoader();
@@ -217,9 +218,7 @@ export const onSearchNameAndSelectDate = async (event, selectedDate) => {
     renderSortContainerList(response.results);
     boxPagination.classList.remove('is-hidden');
 
-    if (inputNameEl) {
-      inputNameEl.innerHTML = '';
-    }
+    inputNameEl.value = '';
   } catch (error) {
     // location.replace('../error.html');
     console.log('Error!', error);

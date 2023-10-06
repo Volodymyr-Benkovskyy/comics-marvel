@@ -23,7 +23,7 @@ function initSwiper() {
 }
 
 initSwiper();
-
+ && window.innerWidth < 1024
 window.addEventListener('resize', initSwiper); */
 
 let swiperSlideHero = null; // Змінна для зберігання екземпляру Swiper
@@ -31,7 +31,7 @@ let swiperSlideHero = null; // Змінна для зберігання екзе
 // Функція для ініціалізації Swiper
 function initSwiper() {
   const isMobile = window.innerWidth < 768;
-  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+  const isTablet = window.innerWidth >= 768 && window.innerWidth <= 1024;
   const isDesktop = window.innerWidth >= 1440;
 
   // Визначення напрямку слайдера

@@ -28,7 +28,7 @@
   position: absolute;
   width: 15px;
   height: 15px;
-  transform: translate(-95px, 5px);
+  transform: translate(-30px, 5px);
   fill: var(--font-color);
 }
 
@@ -38,7 +38,7 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--font-color);
-  padding: 5px 20px 5px 32px;
+  padding: 5px 10px;
   background: transparent;
   border: 1px solid var(--font-color);
   border-bottom: 2px solid var(--primary-color);
@@ -46,8 +46,14 @@
   border-radius: 2px;
 }
 
+.header-input:focus {
+  width: 120px;
+}
+
 .header-input::placeholder {
   text-transform: uppercase;
+  color: var(--font-color);
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -60,7 +66,6 @@
     width: 130px;
     font-size: 14px;
     border-radius: 2px;
-    padding: 5px 10px;
   }
 
   .header-input:focus {
@@ -72,9 +77,8 @@
     height: 20px;
     transform: translate(-30px, 3px);
   }
-  .header-input::placeholder {
+  /*   .header-input::placeholder {
     color: var(--font-color);
     margin-left: 5px;
-    text-align: center;
-  }
+  } */
 }
