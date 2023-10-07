@@ -11,8 +11,6 @@ const formSearchFilter = document.querySelector('.js-characters-sort-form');
 const inputComicsEl = document.querySelector('.js-chararcters-comics-input');
 const selectOrderEl = document.querySelector('.js-characters-select-order');
 const inputNameEl = document.querySelector('.js-chararcters-name-input');
-//const formHeaderEl = document.querySelector('.js-header-chararcters-name');
-//const inputHeaderEl = document.querySelector('.js-header-chararcters-input');
 
 let idComics = [];
 let itemsPerPage = null;
@@ -81,7 +79,7 @@ const fetchAndRenderCharacterList = async () => {
       offset: 0,
       limit: itemsPerPage,
     });
-    console.log('fetchAndRenderCharacterList =>', response);
+
     hideLoader();
     renderSortContainerList(response.results);
     boxPagination.classList.remove('is-hidden'); //  Показуємо пагінацію
@@ -149,7 +147,7 @@ const onSubmitSearchComics = async event => {
         return;
       }
     });
-    console.log('onSearchComics => getComics=>', response);
+
     arrayIdComics = idComics.join(', ');
 
     try {
@@ -219,6 +217,7 @@ export const onSearchNameAndSelectDate = async (event, selectedDate) => {
     boxPagination.classList.remove('is-hidden');
 
     inputNameEl.value = '';
+    selectedDate.value = '';
   } catch (error) {
     // location.replace('../error.html');
     console.log('Error!', error);
@@ -230,3 +229,16 @@ inputNameEl.addEventListener(
   debounce(onSearchNameAndSelectDate, 2000)
 );
 selectOrderEl.addEventListener('change', onSearchNameAndSelectDate);
+
+const jsSortBtnRese = document.querySelector('.js-sort-btn-reset');
+//const calendarInput = document.querySelector('#calendar');
+
+const calendar = document.getElementById('calendar'); // Отримайте елемент календаря
+const calendarInstance = calendar._flatpickr; // Отримайте екземпляр flatpickr
+
+const onReset = () => {
+  hideLoader();
+  location.reload();
+};
+
+jsSortBtnRese.addEventListener('click', onReset);

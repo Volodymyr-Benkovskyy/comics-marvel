@@ -35,7 +35,7 @@ const onSearchInputSubmitCharacters = async event => {
 
       if (response.total === 0) {
         hideLoader();
-
+        ScrollCharacters();
         return;
       }
       hideLoader();

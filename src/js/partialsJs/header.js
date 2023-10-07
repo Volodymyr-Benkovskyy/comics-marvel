@@ -5,6 +5,8 @@ import { showLoader, hideLoader } from '../helpers/loader.js';
 const jsScrolHeaderSearch = document.querySelector('.js-scrol-header-search');
 const galleryHero = document.querySelector('.js-header-search');
 const formSearch = document.querySelector('.js-header-form');
+const removeElement = document.querySelector('.js-remove');
+
 let itemsPerPage = null;
 
 itemsPerPage = getItemsPerPage();
@@ -58,6 +60,7 @@ const onSearchInputSubmit = async event => {
       if (response.results.length === 0) {
         hideLoader();
         galleryHero.innerHTML = '<div class="nothing-seach"></div>';
+        nothisngSeach = document.querySelector('.nothing-seach');
         scrollHeaderSearch();
         return;
       }
@@ -83,4 +86,8 @@ window.addEventListener('scroll', () => {
   } else {
     header.classList.remove('js-header-bg');
   }
+});
+
+removeElement.addEventListener('click', () => {
+  nothisngSeach.classList.remove('nothing-seach');
 });

@@ -30,3 +30,4 @@
 <!-- fix styles header -->
 <!-- add function onScrollBtn  -->
 <!-- fix slide swiper -->
+<!-- fix header.js and  sort-characters.js-->

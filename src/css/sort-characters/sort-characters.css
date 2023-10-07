@@ -119,6 +119,25 @@
   line-height: 1.33;
 }
 
+.characters-sort-btn-reset {
+  text-transform: uppercase;
+  border: 1px solid var(--font-color);
+  border-bottom: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+  color: var(--font-color);
+  background-color: #0000;
+  border-radius: 2px;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.29;
+  display: block;
+}
+.sort-reset {
+  display: flex;
+  justify-content: center;
+}
+
 .tui-pagination .tui-page-btn {
   color: var(--font-color) !important;
   margin-right: 5px !important;
