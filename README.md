@@ -31,3 +31,4 @@
 <!-- add function onScrollBtn  -->
 <!-- fix slide swiper -->
 <!-- fix header.js and  sort-characters.js-->
+<!-- created section comics, html, css  -->

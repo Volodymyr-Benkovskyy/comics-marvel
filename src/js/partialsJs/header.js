@@ -69,7 +69,7 @@ const onSearchInputSubmit = async event => {
       renderGalleryHero(response.results);
       scrollHeaderSearch();
     } catch (error) {
-      location.replace('../error.html');
+      //location.replace('../error.html');
       console.log('Error!', error);
       hideLoader();
     }

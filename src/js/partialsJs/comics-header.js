@@ -1,17 +1,15 @@
-import { api } from './apiMarvel';
+/* import { api } from './apiMarvel';
 import { getItemsPerPage } from '../helpers/getItemsPerPage.js';
 import { showLoader, hideLoader } from '../helpers/loader.js';
 import {
   renderSortContainerList,
   clearSortContainer,
-} from './sort-characters.js';
+} from './sort-characters.js'; */
 
-const galleryHeroCharacters = document.querySelector(
-  '.js-header-search-characters'
+/* const galleryHeroCharacters = document.querySelector(
+  '.js-header-search-comics'
 );
-const formSearchCharacters = document.querySelector(
-  '.js-header-form-characters'
-);
+const formSearchCharacters = document.querySelector('.js-header-form-comics');
 
 let itemsPerPage = null;
 
@@ -51,18 +49,18 @@ const onSearchInputSubmitCharacters = async event => {
       hideLoader();
     }
   }
-};
+}; */
 
-formSearchCharacters.addEventListener('submit', onSearchInputSubmitCharacters);
+//formSearchCharacters.addEventListener('submit', onSearchInputSubmitCharacters);
 
-const headerScroll = document.querySelector('.header-characters');
+const headerScrollComics = document.querySelector('.header-comics');
 
-export const onHeaderScrollCharacters = () => {
+export const onHeaderScrollComics = () => {
   if (scrollY !== 0) {
-    headerScroll.classList.add('js-header-bg-characters');
+    headerScrollComics.classList.add('js-header-bg-comics');
   } else {
-    headerScroll.classList.remove('js-header-bg-characters');
+    headerScrollComics.classList.remove('js-header-bg-comics');
   }
 };
 
-window.addEventListener('scroll', onHeaderScrollCharacters);
+window.addEventListener('scroll', onHeaderScrollComics);

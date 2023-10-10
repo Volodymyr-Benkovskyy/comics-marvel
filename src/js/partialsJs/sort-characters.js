@@ -231,10 +231,6 @@ inputNameEl.addEventListener(
 selectOrderEl.addEventListener('change', onSearchNameAndSelectDate);
 
 const jsSortBtnRese = document.querySelector('.js-sort-btn-reset');
-//const calendarInput = document.querySelector('#calendar');
-
-const calendar = document.getElementById('calendar'); // Отримайте елемент календаря
-const calendarInstance = calendar._flatpickr; // Отримайте екземпляр flatpickr
 
 const onReset = () => {
   hideLoader();
