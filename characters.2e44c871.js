@@ -549,6 +549,6 @@ t.exports=function(t){return null!=t&&(r(t)||"function"==typeof t.readFloatLE&&"
  * Sets multiple style properties at once.
  */function a(t,e){for(var r in e)t.style[r]=e[r];return t}/**
  * Returns the line color from the given string or array.
- */function s(t,e){return"string"==typeof t?t:t[e%t.length]}});//# sourceMappingURL=characters.d861d7ef.js.map
+ */function s(t,e){return"string"==typeof t?t:t[e%t.length]}});//# sourceMappingURL=characters.2e44c871.js.map
 
-//# sourceMappingURL=characters.d861d7ef.js.map
+//# sourceMappingURL=characters.2e44c871.js.map
