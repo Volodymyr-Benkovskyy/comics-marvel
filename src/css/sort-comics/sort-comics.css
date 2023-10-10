@@ -1,68 +1,68 @@
-.characters-sort-section {
+.comics-sort-section {
   padding-top: 40px;
 }
 
-.characters-sort-form {
+.comics-sort-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-top: 10px;
 }
 
-.characters-sort-form-block {
+.comics-sort-form-block {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.characters-sort-btn-block {
+.comics-sort-btn-block {
   position: relative;
 }
 
-.characters-sort-input {
+.comics-sort-input {
   width: 100%;
   height: 40px;
   color: var(--font-color);
   background-color: transparent;
-  padding-left: 10px;
   border-top: 1px solid var(--font-color);
   border-left: 1px solid var(--font-color);
   border-right: 2px solid var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   border-radius: 2px;
+  padding-left: 10px;
 }
 
-.characters-sort-input::placeholder {
+.comics-sort-input::placeholder {
   color: var(--font-color);
   font-size: 14px;
 }
 
-.characters-sort-input:hover,
-.characters-sort-input:focus {
+.comics-input:hover,
+.comics-sort-input:focus {
   background-color: var(--primary-color);
 }
 
-.characters-sort-label {
+.comics-sort-label {
   font-size: 12px;
   line-height: 1.17;
   color: var(--text-additional-color);
   margin-bottom: 10px;
 }
 
-.characters-sort-icon-search {
+.comics-sort-icon-search {
   width: 15px;
   height: 15px;
   position: absolute;
   transform: translate(120px, -30px);
 }
 
-.characters-sort-form-wrapper {
+.comics-sort-form-wrapper {
   display: flex;
   gap: 10px;
   width: 100%;
 }
 
-.characters-sort-select {
+.comics-sort-select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -70,18 +70,10 @@
   padding-right: 25px;
   background-image: url('../../images/svg/arrow-input.svg');
   background-repeat: no-repeat;
-  background-position: 90% center;
+  background-position: 95% center;
 }
-/* arrow-down.svg */
 
-.characters-sort-select-date {
-  background-image: url('../../images/svg/arrow-input.svg');
-  background-repeat: no-repeat;
-  background-position: 90% center;
-  font-size: 14px;
-}
-/* arrow-input */
-.characters-sort-list {
+.comics-sort-list {
   padding-top: 30px;
   display: flex;
   flex-direction: column;
@@ -90,17 +82,17 @@
   margin-bottom: 30px;
 }
 
-.characters-sort-item {
+.comics-sort-item {
   margin-left: 0;
   margin-right: 0;
 }
 
-.characters-sort-link {
+.comics-sort-link {
   margin-left: 0;
   margin-right: 0;
 }
 
-.characters-sort-img {
+.comics-sort-img {
   width: 300px;
   height: 350px;
   border-radius: 8px;
@@ -108,93 +100,77 @@
   margin-right: 0;
 }
 
-.characters-sort-context {
+.comics-sort-context {
   margin-top: 10px;
+  width: 100%;
+  height: 40px;
 }
 
-.characters-sort-title {
+.comics-sort-title {
+  width: 310px;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
 }
 
-.characters-sort-btn-reset {
-  text-transform: uppercase;
-  border: 1px solid var(--font-color);
-  border-bottom: 2px solid var(--primary-color);
-  border-right: 2px solid var(--primary-color);
-  color: var(--font-color);
-  background-color: #0000;
-  border-radius: 2px;
-  padding: 8px 18px;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.29;
-  display: block;
-  margin-bottom: 2px;
-  height: 40px;
-}
-.sort-reset {
-  display: flex;
-  align-items: end;
-}
-
 .tui-pagination .tui-page-btn {
-  color: var(--font-color) !important;
-  margin-right: 5px !important;
-  border: 1px solid var(--primary-color) !important;
+  color: var(--font-color);
 }
 
 .tui-pagination .tui-page-btn:hover {
-  background-color: var(--primary-color) !important;
+  background-color: var(--primary-color);
 }
 
-.tui-pagination .tui-is-selected,
-.tui-pagination strong {
-  background-color: var(--primary-color) !important;
+.tui-pagination .tui-is-selected {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
-.tui-pagination .tui-next {
-  margin-left: 0px !important;
+.tui-pagination .tui-first-child.tui-is-selected {
+  border-left: 1px solid var(--primary-color);
+}
+
+.tui-pagination .tui-last-child.tui-is-selected {
+  border-right: 1px solid var(--primary-color);
 }
 
 @media screen and (min-width: 768px) {
-  .characters-sort-section {
+  .comics-sort-section {
     padding-top: 60px;
   }
 
-  .characters-sort-form {
+  .comics-sort-form {
     flex-direction: row;
     gap: 10px;
   }
 
-  .characters-sort-icon-search {
+  .comics-sort-icon-search {
     transform: translate(65px, -28px);
   }
 
-  .characters-sort-form-wrapper {
+  .comics-sort-form-wrapper {
     width: 150%;
   }
 
-  .characters-sort-list {
+  .comics-sort-list {
     flex-direction: row;
     justify-content: center;
-    gap: 28px;
+    gap: 30px;
     flex-wrap: wrap;
   }
 
-  .characters-sort-img {
+  .comics-sort-img {
     width: 350px;
     height: 400px;
   }
 
-  .characters-sort-title {
+  .comics-sort-title {
     line-height: 1;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .characters-sort-form {
+  .comics-sort-form {
     justify-content: center;
     align-items: center;
     gap: 15px;
@@ -202,28 +178,28 @@
     padding-left: 200px;
   }
 
-  .characters-sort-btn-block {
+  .comics-sort-btn-block {
     width: 150%;
   }
 
-  .characters-sort-form-wrapper {
+  .comics-sort-form-wrapper {
     gap: 15px;
   }
 
-  .characters-sort-icon-search {
+  .comics-sort-icon-search {
     transform: translate(80px, -27px);
   }
 
-  .characters-sort-icon-svg {
-    transform: translate(120px, -27px);
+  .comics-sort-icon-svg {
+    transform: translate(155px, -27px);
   }
 
-  .characters-sort-list {
+  .comics-sort-list {
     row-gap: 40px;
     column-gap: 15px;
   }
 
-  .characters-sort-img {
+  .comics-sort-img {
     width: 333px;
     height: 370px;
   }

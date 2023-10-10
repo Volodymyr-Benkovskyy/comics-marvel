@@ -32,3 +32,4 @@
 <!-- fix slide swiper -->
 <!-- fix header.js and  sort-characters.js-->
 <!-- created section comics, html, css  -->
+<!-- add function  wrapperTuiPagination, fechRandomComicsList -->

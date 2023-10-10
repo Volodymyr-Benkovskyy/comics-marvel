@@ -1,0 +1,79 @@
+<section class="comics-sort-section js-comics-sort-section" id="comics-list">
+  <div class="container">
+    <form class="comics-sort-form js-comics-sort-form">
+      <div class="comics-sort-form-block comics-sort-btn-block">
+        <!-- /////////////  Title Starts With //////////// -->
+
+        <label class="comics-sort-label">Title Starts With</label>
+        <input
+          class="comics-sort-input js-comics-input-title"
+          name="searchTitle"
+          type="text"
+          placeholder="Enter text"
+          autocomplete="off"
+        />
+        <button class="comics-sort-btn" type="submit">
+          <svg class="comics-sort-icon-search comics-sort-icon-svg">
+            <use href="./images/sprite/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+      </div>
+
+      <!-- ///////////////////  Format ////////////////////// -->
+
+      <div class="comics-sort-form-block">
+        <label class="comics-sort-label">Format</label>
+        <select
+          class="comics-sort-input comics-sort-select js-comics-select-format"
+          data-action=""
+          name="selectFormat"
+        >
+          <option>Comic</option>
+          <option>Magazine</option>
+          <option>Trade paperback</option>
+          <option>Hardcover</option>
+          <option>Digest</option>
+          <option>Graphic novel</option>
+          <option>Digital comic</option>
+          <option>Infinite comic</option>
+        </select>
+      </div>
+
+      <!-- ///////////////////  Order by  ////////////////-->
+
+      <div class="comics-sort-form-wrapper">
+        <div class="comics-sort-form-block">
+          <label class="comics-sort-label">Order by</label>
+          <select
+            class="comics-sort-input comics-sort-select js-comics-select-order"
+            data-action=""
+            name="selectComOrder"
+          >
+            <option>Title</option>
+            <option>On Sale Date</option>
+          </select>
+        </div>
+
+        <!--  /////////////////  Start Year  //////////////////////// -->
+
+        <div class="comics-sort-form-block">
+          <label class="comics-sort-label">Start Year</label>
+          <select
+            class="comics-sort-input comics-sort-select js-comics-select-year"
+            type="text"
+            name="selectYear"
+            id="yearPicker"
+          ></select>
+        </div>
+      </div>
+    </form>
+
+    <!-- /////////////// list ///////////////  -->
+
+    <ul class="comics-sort-list js-comics-sort-container"></ul>
+    <div id="loader-container" class="loader-container">
+      <div class="loader"></div>
+    </div>
+    <div id="pagination" class="tui-pagination is-hidden"></div>
+  </div>
+</section>
