@@ -114,24 +114,22 @@
 }
 
 .tui-pagination .tui-page-btn {
-  color: var(--font-color);
+  color: var(--font-color) !important;
+  margin-right: 5px !important;
+  border: 1px solid var(--primary-color) !important;
 }
 
 .tui-pagination .tui-page-btn:hover {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
 }
 
-.tui-pagination .tui-is-selected {
-  background-color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  background-color: var(--primary-color) !important;
 }
 
-.tui-pagination .tui-first-child.tui-is-selected {
-  border-left: 1px solid var(--primary-color);
-}
-
-.tui-pagination .tui-last-child.tui-is-selected {
-  border-right: 1px solid var(--primary-color);
+.tui-pagination .tui-next {
+  margin-left: 0px !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -155,7 +153,7 @@
   .comics-sort-list {
     flex-direction: row;
     justify-content: center;
-    gap: 30px;
+    gap: 28px;
     flex-wrap: wrap;
   }
 
