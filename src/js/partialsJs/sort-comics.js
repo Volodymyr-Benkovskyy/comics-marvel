@@ -9,9 +9,6 @@ let queryFormat = '';
 let queryComicsOrder = '';
 let yearQuery = '';
 
-/* let queryTitle = '';
-let queryFormat = ''; */
-
 let itemsPerPage = null;
 itemsPerPage = getItemsPerPage();
 
@@ -86,9 +83,11 @@ const fechRandomComicsList = async () => {
           orderBy: queryComicsOrder,
         });
         hideLoader();
+        pagination.reset(response.total);
         clearSortComicsList();
         renderSortComicsList(newResponse.results);
         scrollComPerPage();
+        wrapperPagination.classList.remove('is-hidden');
       } catch (error) {}
     });
   } catch (error) {}
@@ -100,15 +99,17 @@ const selectFormatEl = document.querySelector('.js-comics-select-format');
 const selectComicsOrderEl = document.querySelector('.js-comics-select-order');
 const selectDateEl = document.querySelector('.js-comics-select-year');
 
-const fechTitleFormatOrderDate = async (event, selectComicsOrder) => {
+const createSelectYears = () => {
+  let yearsArr = [];
+  for (let i = 2023; i > 1949; i -= 1) {
+    yearsArr.push(`<option>${i}</option>`);
+  }
+  return yearsArr.join('');
+};
+selectDateEl.insertAdjacentHTML('afterbegin', createSelectYears());
+
+const fechTitleFormatOrderDate = async event => {
   event.preventDefault();
-  /*   if (event.target === inputTitleEl) {
-    queryTitle = inputTitleEl.value;
-  } else if (event.target === selectFormatEl) {
-    queryFormat = selectFormatEl.value;
-  } else if (event.target === selectComicsOrderEl) {
-    queryComicsOrder = selectComicsOrder.value;
-  } */
 
   if (event.target === inputTitleEl) {
     queryTitle = inputTitleEl.value;
@@ -122,8 +123,9 @@ const fechTitleFormatOrderDate = async (event, selectComicsOrder) => {
     } else if (selectedValue === 'On Sale Date') {
       queryComicsOrder = 'onsaleDate';
     }
+  } else if (event.target === selectDateEl) {
+    yearQuery = selectDateEl.value;
   }
-
   try {
     showLoader();
     const response = await api.getComics({
@@ -131,19 +133,22 @@ const fechTitleFormatOrderDate = async (event, selectComicsOrder) => {
       titleStartsWith: queryTitle,
       format: queryFormat,
       orderBy: queryComicsOrder,
+      startYear: yearQuery,
     });
     console.log(response);
 
     if (response.results.length === 0) {
-      //sortList.innerHTML = '<div class="nothing-seach"></div>';
+      sortList.innerHTML = '<div class="nothing-seach"></div>';
       wrapperPagination.classList.add('is-hidden');
       hideLoader();
       return;
     }
     hideLoader();
+    pagination.reset(response.total);
     clearSortComicsList();
     renderSortComicsList(response.results);
     scrollComPerPage();
+    wrapperPagination.classList.remove('is-hidden');
     inputTitleEl.value = '';
   } catch (error) {
     hideLoader();
@@ -151,13 +156,7 @@ const fechTitleFormatOrderDate = async (event, selectComicsOrder) => {
   }
 };
 
-selectFormatEl.addEventListener('change', event =>
-  handleSelectChange(event, 'selectFormatEl')
-);
-selectComicsOrderEl.addEventListener('change', event =>
-  handleSelectChange(event, 'selectComicsOrderEl')
-);
-
+selectDateEl.addEventListener('change', fechTitleFormatOrderDate);
 selectComicsOrderEl.addEventListener('change', fechTitleFormatOrderDate);
 selectFormatEl.addEventListener('change', fechTitleFormatOrderDate);
 formSearchComics.addEventListener('submit', fechTitleFormatOrderDate);

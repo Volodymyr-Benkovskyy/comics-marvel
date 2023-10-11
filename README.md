@@ -34,3 +34,4 @@
 <!-- created section comics, html, css  -->
 <!-- add function  wrapperTuiPagination, fechRandomComicsList -->
 <!-- add funtion fechTitleFormatOrderDate -->
+<!-- add funtion createSelectYears, and selectors selectYear -->
