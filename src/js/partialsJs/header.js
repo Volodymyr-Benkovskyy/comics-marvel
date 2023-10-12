@@ -59,8 +59,8 @@ const onSearchInputSubmit = async event => {
 
       if (response.results.length === 0) {
         hideLoader();
-        galleryHero.innerHTML = '<div class="nothing-seach"></div>';
         nothisngSeach = document.querySelector('.nothing-seach');
+        galleryHero.innerHTML = '<div class="nothing-seach"></div>';
         scrollHeaderSearch();
         return;
       }
@@ -69,8 +69,7 @@ const onSearchInputSubmit = async event => {
       renderGalleryHero(response.results);
       scrollHeaderSearch();
     } catch (error) {
-      //location.replace('../error.html');
-      console.log('Error!', error);
+      location.replace('./error.html');
       hideLoader();
     }
   }

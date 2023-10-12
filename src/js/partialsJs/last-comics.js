@@ -47,7 +47,7 @@ const getRandomComics = async () => {
 
     renderLastComics(response.results);
   } catch (error) {
-    console.log(error);
+    location.replace('./error.html');
   }
 };
 

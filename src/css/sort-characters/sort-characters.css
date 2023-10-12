@@ -102,7 +102,7 @@
 
 .characters-sort-img {
   width: 300px;
-  height: 350px;
+  height: 450px;
   border-radius: 8px;
   margin-left: 0;
   margin-right: 0;
@@ -185,7 +185,7 @@
 
   .characters-sort-img {
     width: 350px;
-    height: 400px;
+    height: 500px;
   }
 
   .characters-sort-title {
@@ -225,6 +225,6 @@
 
   .characters-sort-img {
     width: 333px;
-    height: 370px;
+    height: 500px;
   }
 }

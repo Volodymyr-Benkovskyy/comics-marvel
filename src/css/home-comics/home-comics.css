@@ -68,7 +68,9 @@
   line-height: 1.29;
   padding: 8px 18px;
   border: 1px solid var(--font-color);
-  border-radius: 20px;
+  border-bottom: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+  border-radius: 2px;
   background-color: transparent;
 }
 

@@ -9,12 +9,25 @@ let queryFormat = '';
 let queryComicsOrder = '';
 let yearQuery = '';
 
-let itemsPerPage = null;
+let itemsPerPage = '';
 itemsPerPage = getItemsPerPage();
 
 const formSearchComics = document.querySelector('.js-comics-sort-form');
 const sortList = document.querySelector('.js-comics-sort-container');
 const scrollStart = document.getElementById('comics-list');
+const inputTitleEl = document.querySelector('.js-comics-input-title');
+const selectFormatEl = document.querySelector('.js-comics-select-format');
+const selectComicsOrderEl = document.querySelector('.js-comics-select-order');
+const selectDateEl = document.querySelector('.js-comics-select-year');
+
+const createSelectYears = () => {
+  let yearsArr = [];
+  for (let i = 2023; i > 1949; i -= 1) {
+    yearsArr.push(`<option>${i}</option>`);
+  }
+  return yearsArr.join('');
+};
+selectDateEl.insertAdjacentHTML('afterbegin', createSelectYears());
 
 const createComicsList = data => {
   return data
@@ -36,11 +49,11 @@ const createComicsList = data => {
     .join('');
 };
 
-const clearSortComicsList = () => {
+export const clearSortComicsList = () => {
   sortList.innerHTML = '';
 };
 
-const renderSortComicsList = data => {
+export const renderSortComicsList = data => {
   sortList.insertAdjacentHTML('beforeend', createComicsList(data));
 };
 
@@ -71,7 +84,7 @@ const fechRandomComicsList = async () => {
     pagination.reset(response.total);
     pagination.on('beforeMove', async event => {
       const currentPage = event.page;
-      let offset = itemsPerPage * (currentPage + 1);
+      let offset = itemsPerPage * (currentPage - 1);
 
       try {
         showLoader();
@@ -83,30 +96,20 @@ const fechRandomComicsList = async () => {
           orderBy: queryComicsOrder,
         });
         hideLoader();
-        pagination.reset(response.total);
         clearSortComicsList();
         renderSortComicsList(newResponse.results);
         scrollComPerPage();
-        wrapperPagination.classList.remove('is-hidden');
-      } catch (error) {}
+      } catch (error) {
+        hideLoader();
+        location.replace('./error.html');
+      }
     });
-  } catch (error) {}
+  } catch (error) {
+    hideLoader();
+    location.replace('./error.html');
+  }
 };
 fechRandomComicsList();
-
-const inputTitleEl = document.querySelector('.js-comics-input-title');
-const selectFormatEl = document.querySelector('.js-comics-select-format');
-const selectComicsOrderEl = document.querySelector('.js-comics-select-order');
-const selectDateEl = document.querySelector('.js-comics-select-year');
-
-const createSelectYears = () => {
-  let yearsArr = [];
-  for (let i = 2023; i > 1949; i -= 1) {
-    yearsArr.push(`<option>${i}</option>`);
-  }
-  return yearsArr.join('');
-};
-selectDateEl.insertAdjacentHTML('afterbegin', createSelectYears());
 
 const fechTitleFormatOrderDate = async event => {
   event.preventDefault();
@@ -152,7 +155,7 @@ const fechTitleFormatOrderDate = async event => {
     inputTitleEl.value = '';
   } catch (error) {
     hideLoader();
-    console.log(error);
+    location.replace('./error.html');
   }
 };
 
@@ -160,4 +163,3 @@ selectDateEl.addEventListener('change', fechTitleFormatOrderDate);
 selectComicsOrderEl.addEventListener('change', fechTitleFormatOrderDate);
 selectFormatEl.addEventListener('change', fechTitleFormatOrderDate);
 formSearchComics.addEventListener('submit', fechTitleFormatOrderDate);
-//inputTitleEl.addEventListener('input', fechTitleFormatOrderDate);

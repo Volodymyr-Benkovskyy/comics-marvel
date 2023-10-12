@@ -69,7 +69,6 @@ export const api = {
       const data = response.data.data;
       return data;
     } catch (error) {
-      console.log(error);
       return { error: error.message };
     }
   },

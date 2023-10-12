@@ -82,7 +82,7 @@ const fetchAndRenderCharacterList = async () => {
 
     hideLoader();
     renderSortContainerList(response.results);
-    boxPagination.classList.remove('is-hidden'); //  Показуємо пагінацію
+    boxPagination.classList.remove('is-hidden');
 
     if (itemsPerPage > response.total) {
       return;
@@ -102,17 +102,17 @@ const fetchAndRenderCharacterList = async () => {
           nameStartsWith: queryName,
           modifiedSince: dateQuery,
         });
-
         hideLoader();
         clearSortContainer();
         renderSortContainerList(newResponse.results);
       } catch (error) {
-        console.log('Error');
         hideLoader();
+        location.replace('./error.html');
       }
     });
   } catch (error) {
-    console.log(error);
+    hideLoader();
+    location.replace('./error.html');
   }
 };
 
@@ -172,11 +172,12 @@ const onSubmitSearchComics = async event => {
       boxPagination.classList.remove('is-hidden');
       inputComicsEl.value = '';
     } catch (error) {
-      console.log('Error!', error);
+      hideLoader();
+      location.replace('./error.html');
     }
   } catch (error) {
     hideLoader();
-    console.log('Error!', error);
+    location.replace('./error.html');
   }
 };
 
@@ -219,8 +220,8 @@ export const onSearchNameAndSelectDate = async (event, selectedDate) => {
     inputNameEl.value = '';
     selectedDate.value = '';
   } catch (error) {
-    // location.replace('../error.html');
-    console.log('Error!', error);
+    hideLoader();
+    location.replace('./error.html');
   }
 };
 

@@ -63,7 +63,7 @@ const getRandomCharacters = async () => {
       remainingResults.splice(randomIndex, 1);
     }
 
-    //  логіка для перевірки HTTPS і зміни URL тут
+    //  логіка для перевірки HTTPS і зміни URL
     randomCharactersArray.forEach(character => {
       if (!character.thumbnail.path.startsWith('https://')) {
         character.thumbnail.path = character.thumbnail.path.replace(
@@ -73,7 +73,6 @@ const getRandomCharacters = async () => {
       }
     });
 
-    console.log(randomCharactersArray);
     renderRandomImg(randomCharactersArray);
     renderRandmDescr(randomCharactersArray);
 
@@ -83,9 +82,7 @@ const getRandomCharacters = async () => {
     );
     setInterval(showNextSlide, 3500);
   } catch (error) {
-    console.log(error);
     location.replace('../error.html');
-    return { error: error.message };
   }
 };
 

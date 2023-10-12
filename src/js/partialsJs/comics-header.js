@@ -1,57 +1,51 @@
-/* import { api } from './apiMarvel';
+import { api } from './apiMarvel';
 import { getItemsPerPage } from '../helpers/getItemsPerPage.js';
 import { showLoader, hideLoader } from '../helpers/loader.js';
-import {
-  renderSortContainerList,
-  clearSortContainer,
-} from './sort-characters.js'; */
+import { renderSortComicsList, clearSortComicsList } from './sort-comics';
 
-/* const galleryHeroCharacters = document.querySelector(
-  '.js-header-search-comics'
-);
-const formSearchCharacters = document.querySelector('.js-header-form-comics');
+const galleryHeroComics = document.querySelector('.js-header-search-comics');
+const formSearchComics = document.querySelector('.js-header-form-comics');
 
 let itemsPerPage = null;
 
 itemsPerPage = getItemsPerPage();
 
-const ScrollCharacters = () => {
-  galleryHeroCharacters.scrollIntoView({ behavior: 'smooth' });
+const ScrollComics = () => {
+  galleryHeroComics.scrollIntoView({ behavior: 'smooth' });
 };
 
-const onSearchInputSubmitCharacters = async event => {
+const onSearchInputSubmitComics = async event => {
   event.preventDefault();
   const { target: formEl } = event;
-  let query = formEl.elements.searchQuery.value;
-  formSearchCharacters.reset();
+  let queryComics = formEl.elements.searchName.value;
+  formSearchComics.reset();
 
-  if (query !== '') {
+  if (queryComics !== '') {
     try {
       showLoader();
-      const response = await api.getCharacters({
-        nameStartsWith: query,
+      const response = await api.getComics({
+        titleStartsWith: queryComics,
         limit: itemsPerPage,
         offset: 0,
       });
 
       if (response.total === 0) {
         hideLoader();
-        ScrollCharacters();
+        ScrollComics();
         return;
       }
       hideLoader();
-      ScrollCharacters();
-      clearSortContainer();
-      renderSortContainerList(response.results);
+      ScrollComics();
+      clearSortComicsList();
+      renderSortComicsList(response.results);
     } catch (error) {
-      location.replace('../error.html');
-
       hideLoader();
+      location.replace('./error.html');
     }
   }
-}; */
+};
 
-//formSearchCharacters.addEventListener('submit', onSearchInputSubmitCharacters);
+formSearchComics.addEventListener('submit', onSearchInputSubmitComics);
 
 const headerScrollComics = document.querySelector('.header-comics');
 

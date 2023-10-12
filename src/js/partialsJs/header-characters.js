@@ -46,9 +46,8 @@ const onSearchInputSubmitCharacters = async event => {
       clearSortContainer();
       renderSortContainerList(response.results);
     } catch (error) {
-      location.replace('../error.html');
-
       hideLoader();
+      location.replace('./error.html');
     }
   }
 };
