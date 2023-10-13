@@ -1,12 +1,15 @@
 import { api } from './apiMarvel';
-
+import { showLoader, hideLoader } from '../helpers/loader.js';
 const randomImg = document.querySelector('.js-random-img');
 const randomDescr = document.querySelector('.js-random-descr');
 
 const createRandomImg = array => {
   const data = array
     .map(({ id, thumbnail, name }) => {
-      return `  <li class= "js-slide js-random-characters-img" data-id="${id}">
+      return ` 
+      
+      <li class= "js-slide js-random-characters-img" data-id="${id}">
+    
       <picture>
       <source media="(min-width: 1440px)"
                   srcset="${thumbnail.path}.${thumbnail.extension}" />
@@ -45,6 +48,9 @@ const renderRandmDescr = data => {
 
 const getRandomCharacters = async () => {
   try {
+    showLoader();
+    randomImg.classList.add('randomImg-before-loading');
+    randomDescr.classList.add('randomImg-before-loading');
     const allCharacters = await api.getCharacters('/characters');
 
     let { results } = allCharacters;
@@ -73,8 +79,14 @@ const getRandomCharacters = async () => {
       }
     });
 
+    setTimeout(() => {
+      randomImg.classList.remove('randomImg-before-loading');
+    }, 2500);
+
+    randomDescr.classList.remove('randomImg-before-loading');
     renderRandomImg(randomCharactersArray);
     renderRandmDescr(randomCharactersArray);
+    hideLoader();
 
     slideImagesArray = document.querySelectorAll('.js-slide');
     slideDescriptionsArray = document.querySelectorAll(
@@ -82,6 +94,7 @@ const getRandomCharacters = async () => {
     );
     setInterval(showNextSlide, 3500);
   } catch (error) {
+    hideLoader();
     location.replace('../error.html');
   }
 };

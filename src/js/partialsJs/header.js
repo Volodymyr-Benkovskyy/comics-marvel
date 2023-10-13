@@ -14,7 +14,8 @@ itemsPerPage = getItemsPerPage();
 const createGalleryHero = data => {
   return data
     .map(el => {
-      return `<li class="header-search-item">
+      return `
+      <li class="header-search-item">
         <img class="header-search-img"
        data-set="${el.id}"
         src="${el.thumbnail.path}.${el.thumbnail.extension}"
