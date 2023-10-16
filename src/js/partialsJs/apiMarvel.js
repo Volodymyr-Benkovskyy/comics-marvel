@@ -6,7 +6,7 @@ const PUBLIC_KEY = 'efe513042744199e2ee71f94d9988717';
 const PRIVATE_KEY = '5488535f3958164a14b37ef40df2b28b6e569641';
 const timeStamp = 1;
 
-const instance = axios.create({
+const axiosInst = axios.create({
   baseURL: BASE_URL,
   params: {
     apikey: PUBLIC_KEY,
@@ -25,7 +25,7 @@ export const api = {
     modifiedSince = '',
   }) => {
     try {
-      const response = await instance.get('/characters', {
+      const response = await axiosInst.get('/characters', {
         params: {
           ...(limit && { limit }),
           ...(offset && { offset }),
@@ -54,7 +54,7 @@ export const api = {
     dateDescriptor = '',
   }) => {
     try {
-      const response = await instance.get('/comics', {
+      const response = await axiosInst.get('/comics', {
         params: {
           ...(limit && { limit }),
           ...(offset && { offset }),
@@ -67,6 +67,46 @@ export const api = {
         },
       });
       const data = response.data.data;
+      return data;
+    } catch (error) {
+      return { error: error.message };
+    }
+  },
+
+  getCharactersById: async ({ characterId }) => {
+    try {
+      const response = await axiosInst.get(`/characters/${characterId}`);
+      const data = response.data.data.results;
+      return data;
+    } catch (error) {
+      console.log(error);
+      return { error: error.message };
+    }
+  },
+  getComicById: async ({ comicId }) => {
+    try {
+      const response = await axiosInst.get(`/comics/${comicId}`);
+      const data = response.data.data.results;
+      return data;
+    } catch (error) {
+      return { error: error.message };
+    }
+  },
+
+  getSeriesById: async ({ seriesId }) => {
+    try {
+      const res = await axiosInst.get(`/series/${seriesId}`);
+      const data = res.data.data.results;
+      return data;
+    } catch (error) {
+      return { error: error.message };
+    }
+  },
+
+  getCreatorsById: async ({ creatorId }) => {
+    try {
+      const res = await axiosInst.get(`/creators/${creatorId}`);
+      const data = res.data.data.results;
       return data;
     } catch (error) {
       return { error: error.message };

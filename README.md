@@ -37,3 +37,6 @@
 <!-- add funtion createSelectYears, and selectors selectYear -->
 <!-- add page error , html, styles   -->
 <!--  add section modal , htm , styles -->
+<!--
+fix section modal , htm , and js function onCloseBtnElClick ,createMarkupCharacters, onModalOpenCharactersClick
+ -->

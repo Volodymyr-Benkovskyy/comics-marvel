@@ -231,11 +231,11 @@ inputNameEl.addEventListener(
 );
 selectOrderEl.addEventListener('change', onSearchNameAndSelectDate);
 
-const jsSortBtnRese = document.querySelector('.js-sort-btn-reset');
+const jsSortBtnReset = document.querySelector('.js-sort-btn-reset');
 
 const onReset = () => {
   hideLoader();
   location.reload();
 };
 
-jsSortBtnRese.addEventListener('click', onReset);
+jsSortBtnReset.addEventListener('click', onReset);
