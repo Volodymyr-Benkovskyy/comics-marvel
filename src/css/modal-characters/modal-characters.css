@@ -23,12 +23,6 @@
   padding: 40px 15px;
 }
 
-.is-concealed {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
 .js-modal-close-btn {
   top: 8px;
   right: 14px;

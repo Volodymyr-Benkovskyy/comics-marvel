@@ -40,3 +40,6 @@
 <!--
 fix section modal , htm , and js function onCloseBtnElClick ,createMarkupCharacters, onModalOpenCharactersClick
  -->
+
+ <!--  create modal-comics-html, add function createMarkuComics 
+ -->
