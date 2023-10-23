@@ -1,6 +1,7 @@
 import { api } from './apiMarvel';
 import { showLoader, hideLoader } from '../helpers/loader';
 import { onModalComicsClick } from './modal-comics';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const modalClose = document.querySelector('.js-modal-section-characters');
 const closeBtnEl = document.querySelector('.js-modal-close-btn');
 const markupModalCharacters = document.querySelector(
@@ -70,8 +71,7 @@ export const onModalOpenCharactersClick = async event => {
     hideLoader();
   } catch (error) {
     hideLoader();
-    alert(' onModalOpenCharactersClick ==>', error.message);
-    console.log(' onModalOpenCharactersClick ==>', error.message);
+    Notify.failure('This information is missing');
   }
 };
 

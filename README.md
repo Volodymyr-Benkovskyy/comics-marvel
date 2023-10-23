@@ -45,3 +45,4 @@ fix section modal , htm , and js function onCloseBtnElClick ,createMarkupCharact
  -->
 <!-- fix styles modal, add function  jsModalLastComics, rerenderComics, -->
 <!-- adds function onModalRandomCharacters, onModalFilterCharacters,onModalFilterComics -->
+<!-- library installation  Notiflix  -->

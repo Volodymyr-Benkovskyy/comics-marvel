@@ -1,6 +1,8 @@
 import { api } from './apiMarvel';
 import { showLoader, hideLoader } from '../helpers/loader';
 import { onModalOpenCharactersClick } from './modal-characters';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 const modalClose = document.querySelector('.js-modal-section-characters');
 const modalContainerHidden = document.querySelector(
   '.modal-container-characters'
@@ -76,10 +78,7 @@ export const onModalComicsClick = async event => {
     hideLoader();
   } catch (error) {
     hideLoader();
-
-    setTimeout(() => {
-      alert(error.message);
-    }, 1000);
+    Notify.failure('This information is missing');
   }
 };
 
