@@ -43,3 +43,4 @@ fix section modal , htm , and js function onCloseBtnElClick ,createMarkupCharact
 
  <!--  create modal-comics-html, add function createMarkuComics 
  -->
+<!-- fix styles modal, add function  jsModalLastComics, rerenderComics, -->

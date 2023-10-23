@@ -112,7 +112,8 @@ const fetchAndRenderCharacterList = async () => {
     });
   } catch (error) {
     hideLoader();
-    location.replace('./error.html');
+    //location.replace('./error.html');
+    console.log(error.message);
   }
 };
 
@@ -173,11 +174,13 @@ const onSubmitSearchComics = async event => {
       inputComicsEl.value = '';
     } catch (error) {
       hideLoader();
-      location.replace('./error.html');
+      //location.replace('./error.html');
+      console.log(error.message);
     }
   } catch (error) {
     hideLoader();
-    location.replace('./error.html');
+    //location.replace('./error.html');
+    console.log(error.message);
   }
 };
 
@@ -221,7 +224,8 @@ export const onSearchNameAndSelectDate = async (event, selectedDate) => {
     selectedDate.value = '';
   } catch (error) {
     hideLoader();
-    location.replace('./error.html');
+    //location.replace('./error.html');
+    console.log(error.message);
   }
 };
 

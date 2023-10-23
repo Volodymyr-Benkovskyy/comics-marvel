@@ -40,7 +40,8 @@ const onSearchInputSubmitComics = async event => {
       renderSortComicsList(response.results);
     } catch (error) {
       hideLoader();
-      location.replace('./error.html');
+      //location.replace('./error.html');
+      console.log(error.message);
     }
   }
 };

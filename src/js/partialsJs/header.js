@@ -1,11 +1,26 @@
 import { api } from './apiMarvel';
 import { getItemsPerPage } from '../helpers/getItemsPerPage.js';
 import { showLoader, hideLoader } from '../helpers/loader.js';
+import { onModalOpenCharactersClick } from './modal-characters';
 
 const jsScrolHeaderSearch = document.querySelector('.js-scrol-header-search');
 const galleryHero = document.querySelector('.js-header-search');
 const formSearch = document.querySelector('.js-header-form');
-const removeElement = document.querySelector('.js-remove');
+//const removeElement = document.querySelector('.js-remove');
+const jsModalSearchCharacters = document.querySelector(
+  '.js-modal-search-characters'
+);
+
+jsModalSearchCharacters.addEventListener('click', event => {
+  const target = event.target; // Елемент, на який було клікнуто
+
+  // Перевіряємо, чи клікнуто на певному дитячому елементі
+  if (target.matches('.header-search-img, .header-search-title')) {
+    const id = target.dataset.id;
+    const clickEvent = { target }; // Передаємо об'єкт події та id
+    onModalOpenCharactersClick(clickEvent, id);
+  }
+});
 
 let itemsPerPage = null;
 
@@ -17,12 +32,12 @@ const createGalleryHero = data => {
       return `
       <li class="header-search-item">
         <img class="header-search-img"
-       data-set="${el.id}"
+       data-id="${el.id}"
         src="${el.thumbnail.path}.${el.thumbnail.extension}"
         alt="${el.name}"
       />
           <div class="header-search-context">
-          <h3  class="header-search-title" data-set="${el.id}">${el.name}</h3>
+          <h3  class="header-search-title" data-id="${el.id}">${el.name}</h3>
           </div>
       </li>
     `;
@@ -70,8 +85,9 @@ const onSearchInputSubmit = async event => {
       renderGalleryHero(response.results);
       scrollHeaderSearch();
     } catch (error) {
-      location.replace('./error.html');
       hideLoader();
+      //location.replace('./error.html');
+      console.log(error.message);
     }
   }
 };
@@ -88,6 +104,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-removeElement.addEventListener('click', () => {
+/* removeElement.addEventListener('click', () => {
   nothisngSeach.classList.remove('nothing-seach');
 });
+ */

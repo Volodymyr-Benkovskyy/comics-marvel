@@ -1,7 +1,6 @@
 import { api } from './apiMarvel.js';
-
+import { onModalComicsClick } from './modal-comics.js';
 const lastComicsList = document.querySelector('.js-last-comics-list');
-
 const createLastComics = array => {
   const data = array
     .map(({ id, thumbnail, title, creators }) => {
@@ -23,6 +22,21 @@ const createLastComics = array => {
     .join('');
   return data;
 };
+
+const jsModalLastComics = document.querySelector(
+  '.js-click-delegate-last-comics'
+);
+
+jsModalLastComics.addEventListener('click', event => {
+  const target = event.target; // Елемент, на який було клікнуто
+
+  // Перевіряємо, чи клікнуто на певному дитячому елементі
+  if (target.matches('.last-comics-img')) {
+    const id = target.dataset.id;
+    const clickEventComics = { target }; // Передаємо об'єкт події та id
+    onModalComicsClick(clickEventComics, id);
+  }
+});
 
 const renderLastComics = data => {
   lastComicsList.insertAdjacentHTML('beforeend', createLastComics(data));
@@ -47,7 +61,8 @@ const getRandomComics = async () => {
 
     renderLastComics(response.results);
   } catch (error) {
-    location.replace('./error.html');
+    //location.replace('./error.html');
+    console.log(error.message);
   }
 };
 

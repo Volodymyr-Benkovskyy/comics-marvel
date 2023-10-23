@@ -95,7 +95,8 @@ const getRandomCharacters = async () => {
     setInterval(showNextSlide, 3500);
   } catch (error) {
     hideLoader();
-    location.replace('../error.html');
+    //location.replace('./error.html');
+    console.log(error.message);
   }
 };
 

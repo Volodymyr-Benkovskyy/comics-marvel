@@ -1,0 +1,357 @@
+.box-hero-images-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero-photo-comic {
+  min-width: 290px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.list-hero-photo-small {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.photo-small-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.box-description-comics {
+  border-radius: 8px;
+  width: 100%;
+}
+
+.title-name-hero-comics {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1, 33;
+  align-items: center;
+  letter-spacing: -0.02em;
+  color: var(--text-additional-color);
+}
+
+.comics-discription {
+  font-size: 10px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.writerName-author {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-right: 10px;
+  color: var(--gray-color);
+}
+.writer-separation {
+  color: var(--gray-color);
+}
+
+.writerName-date {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.12;
+  color: var(--gray-color);
+}
+
+.text-description-info-comics {
+  font-family: 'Poppins';
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.12;
+  margin-bottom: 32px;
+  color: var(--text-additional-color);
+}
+
+.list-info-comics {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.item-info-comics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text-format {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.17;
+  text-transform: uppercase;
+}
+
+.text-format-render {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.12;
+  color: var(--gray-color);
+}
+
+.text-product-details {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.12;
+  color: var(--text-additional-color);
+}
+
+.character-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.title-creators {
+  margin-bottom: 20px;
+  color: var(--text-additional-color);
+}
+
+.creators-box {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.author-img {
+  min-width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.author-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-role {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.17;
+  margin-bottom: 8px;
+  color: var(--text-additional-color);
+}
+
+.author-name {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.12;
+  color: var(--gray-color);
+}
+
+.title-characters {
+  margin-bottom: 20px;
+  color: var(--text-additional-color);
+}
+
+.characters-list {
+  display: flex;
+  row-gap: 16px;
+  column-gap: 10px;
+  flex-wrap: wrap-reverse;
+}
+
+.characters-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.character-name {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.12;
+  align-items: center;
+  color: var(--gray-color);
+}
+
+.container-description-comics-modal {
+  padding: 40px 15px;
+  background-color: var(--bg-modal);
+  border-radius: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .container-description-comics-modal {
+    width: 540px;
+  }
+  .box-hero-images-modal {
+    margin-bottom: 20px;
+  }
+  .box-description-comics {
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .hero-photo-comic {
+    width: 332px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .author-img {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 8px;
+  }
+
+  .character-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+  }
+
+  .character-name {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.12;
+    align-items: center;
+  }
+
+  .author-name {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+
+  .author-rol {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17;
+    margin-bottom: 8px;
+  }
+
+  .title-creators {
+    margin-bottom: 32px;
+  }
+
+  .text-description-info-comics {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.12;
+    margin-bottom: 32px;
+  }
+
+  .writerName-author {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+
+  .info-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-direction: row;
+    row-gap: 0px;
+  }
+
+  .title-name-hero-comics {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+  }
+
+  .box-hero-images-modal {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+  /* /////// */
+
+  .list-hero-photo-small {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .list-info-comics {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .text-product-details {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17;
+    text-transform: uppercase;
+  }
+
+  .characters-item {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .box-hero-images-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .render-modal-comics-list {
+    display: flex;
+    column-gap: 20px;
+  }
+  .list-hero-photo-small {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .container-description-comics-modal {
+    width: 700px;
+  }
+
+  .characters-item {
+    width: 32%;
+  }
+}

@@ -101,12 +101,14 @@ const fechRandomComicsList = async () => {
         scrollComPerPage();
       } catch (error) {
         hideLoader();
-        location.replace('./error.html');
+        //location.replace('./error.html');
+        console.log(error.message);
       }
     });
   } catch (error) {
     hideLoader();
-    location.replace('./error.html');
+    //location.replace('./error.html');
+    console.log(error.message);
   }
 };
 fechRandomComicsList();
@@ -155,7 +157,8 @@ const fechTitleFormatOrderDate = async event => {
     inputTitleEl.value = '';
   } catch (error) {
     hideLoader();
-    location.replace('./error.html');
+    //location.replace('./error.html');
+    console.log(error.message);
   }
 };
 

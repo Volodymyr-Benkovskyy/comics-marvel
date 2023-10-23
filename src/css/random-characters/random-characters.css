@@ -21,9 +21,12 @@
 .random-characters-img-list {
   display: block;
   position: relative;
-
   width: 100%;
   overflow: hidden;
+}
+.random-characters-img-list:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
 }
 
 .js-slide {
@@ -41,6 +44,8 @@
   object-fit: cover;
   top: 0;
   left: 0;
+  height: 300px;
+  cursor: pointer;
 }
 
 .js-show {
@@ -51,7 +56,7 @@
   padding: 30px 0;
   display: flex;
   flex-direction: column;
-
+  cursor: pointer;
   gap: 15px;
 }
 
@@ -61,6 +66,11 @@
   gap: 15px;
   color: var(--text-additional-color);
   border-bottom: 1px solid var(--text-additional-color);
+}
+
+.js-random-characters-description:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
 }
 
 .js-active {

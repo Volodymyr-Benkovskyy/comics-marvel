@@ -1,5 +1,10 @@
-.display-none {
-  display: none;
+.display-is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .js-modal-section-characters {
@@ -10,7 +15,7 @@
   height: 100%;
   z-index: 1000;
   padding: 20px 0;
-  background-color: rgba(90, 90, 90, 0.788);
+  background-color: rgba(72, 41, 182, 0.788);
   overflow: auto;
 }
 
@@ -29,7 +34,7 @@
   border: none;
   cursor: pointer;
   outline: none;
-  color: white;
+  color: var(--font-color);
   font-size: 20px;
   position: absolute;
   border-color: transparent;
@@ -62,7 +67,8 @@
 }
 
 .wraper-comics {
-  background-color: gray;
+  background-color: var(--bg-modal);
+
   border-radius: 8px;
   padding: 15px;
 }
@@ -73,11 +79,13 @@
   line-height: 1.33;
   letter-spacing: -0.02em;
   margin-bottom: 4px;
+  color: var(--font-color);
 }
 
 .comics-date {
   font-size: 14px;
   line-height: 1.29;
+  color: var(--text-additional-color);
 }
 
 .comics-description {
@@ -88,6 +96,7 @@
   width: 263px;
   margin-top: 16px;
   margin-bottom: 32px;
+  color: var(--font-color);
 }
 
 .comics-list-title {
@@ -96,12 +105,24 @@
   line-height: 1.33;
   letter-spacing: -0.02em;
   margin-bottom: 10px;
+  color: var(--font-color);
 }
 
 .modal-comics-img {
   width: 262px;
   height: auto;
   border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal-comics-img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+.comics-title:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 0.3s;
 }
 
 .comics-title {
@@ -111,12 +132,14 @@
   letter-spacing: -0.02em;
   margin-top: 15px;
   margin-bottom: 10px;
+  color: var(--font-color);
 }
 
 .comics-creator-name {
   font-size: 12px;
   line-height: 1.17;
   margin-bottom: 32px;
+  color: var(--text-additional-color);
 }
 
 .comics-list-item {
@@ -125,8 +148,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  /* //////////////////////// */
   .modal-container-characters {
-    width: min-content;
+    min-width: fit-content;
     padding: 60px 40px;
   }
 
@@ -235,7 +259,7 @@
   }
 
   .modal-comics-img {
-    width: 174px;
+    width: 186px;
     margin-bottom: 15px;
   }
 
@@ -280,5 +304,9 @@
     display: flex;
     align-content: end;
     justify-content: space-between;
+  }
+  .render-modal-characters-list {
+    display: flex;
+    column-gap: 20px;
   }
 }
