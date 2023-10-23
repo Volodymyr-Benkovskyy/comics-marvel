@@ -1,0 +1,21 @@
+!function(){var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},t={},s={},o=e.parcelRequirece98;null==o&&((o=function(e){if(e in t)return t[e].exports;if(e in s){var o=s[e];delete s[e];var i={id:e,exports:{}};return t[e]=i,o.call(i.exports,i,i.exports),i.exports}var r=Error("Cannot find module '"+e+"'");throw r.code="MODULE_NOT_FOUND",r}).register=function(e,t){s[e]=t},e.parcelRequirece98=o);var i=o("7lKJl"),r=o("2xl03"),a=o("81V9Z"),i=o("7lKJl"),a=o("81V9Z"),r=o("2xl03"),l=o("1VFfL"),c=o("bfVKR");let n="",d="",m="",u="",h="";h=(0,r.getItemsPerPage)();let g=document.querySelector(".js-comics-sort-form"),f=document.querySelector(".js-comics-sort-container"),L=document.getElementById("comics-list"),v=document.querySelector(".js-comics-input-title"),y=document.querySelector(".js-comics-select-format"),p=document.querySelector(".js-comics-select-order"),w=document.querySelector(".js-comics-select-year");f.addEventListener("click",e=>{let t=e.target,s=t.dataset.id;// Елемент, на який було клікнуто
+// Перевіряємо, чи клікнуто на певному дитячому елементі
+t.matches(".comics-sort-img, .comics-sort-title")&&(0,c.onModalComicsClick)({target:t},s)}),w.insertAdjacentHTML("afterbegin",(()=>{let e=[];for(let t=2023;t>1949;t-=1)e.push(`<option>${t}</option>`);return e.join("")})());let b=e=>e.map(({id:e,thumbnail:t,title:s})=>`<li class="comics-sort-item">
+      <a class="comics-sort-link">
+        <img class="comics-sort-img"
+        data-id="${e}"
+        src="${t.path}.${t.extension}"
+        alt="${s}"
+      />
+          <div class="comics-sort-context">
+          <h3  class="comics-sort-title" data-id="${e}">${s}</h3>
+          </div>
+          </a>
+      </li>
+    `).join(""),j=()=>{f.innerHTML=""},S=e=>{f.insertAdjacentHTML("beforeend",b(e))},q=()=>{L.scrollIntoView({behavior:"smooth"})},E=document.querySelector(".tui-pagination"),x={totalItems:0,itemsPerPage:h,visiblePages:3},C=new(l&&l.__esModule?l.default:l)(E,x),M=async()=>{(0,a.showLoader)();try{let e=await (0,i.api).getComics({limit:h,offset:0});(0,a.hideLoader)(),j(),S(e.results),E.classList.remove("is-hidden"),C.reset(e.total),C.on("beforeMove",async e=>{let t=e.page,s=h*(t-1);try{(0,a.showLoader)();let e=await (0,i.api).getComics({offset:s,limit:h,titleStartsWith:n,format:d,orderBy:m});(0,a.hideLoader)(),j(),S(e.results),q()}catch(e){(0,a.hideLoader)(),//location.replace('./error.html');
+console.log(e.message)}})}catch(e){(0,a.hideLoader)(),//location.replace('./error.html');
+console.log(e.message)}};M();let T=async e=>{if(e.preventDefault(),e.target===v)n=v.value;else if(e.target===y)d=y.value;else if(e.target===p){let e=p.value;"Title"===e?m="title":"On Sale Date"===e&&(m="onsaleDate")}else e.target===w&&(u=w.value);try{(0,a.showLoader)();let e=await (0,i.api).getComics({limit:h,titleStartsWith:n,format:d,orderBy:m,startYear:u});if(console.log(e),0===e.results.length){f.innerHTML='<div class="nothing-seach"></div>',E.classList.add("is-hidden"),(0,a.hideLoader)();return}(0,a.hideLoader)(),C.reset(e.total),j(),S(e.results),q(),E.classList.remove("is-hidden"),v.value=""}catch(e){(0,a.hideLoader)(),//location.replace('./error.html');
+console.log(e.message)}};w.addEventListener("change",T),p.addEventListener("change",T),y.addEventListener("change",T),g.addEventListener("submit",T);let P=document.querySelector(".js-header-search-comics"),V=document.querySelector(".js-header-form-comics"),$=null;$=(0,r.getItemsPerPage)();let D=()=>{P.scrollIntoView({behavior:"smooth"})},I=async e=>{e.preventDefault();let{target:t}=e,s=t.elements.searchName.value;if(V.reset(),""!==s)try{(0,a.showLoader)();let e=await (0,i.api).getComics({titleStartsWith:s,limit:$,offset:0});if(0===e.total){(0,a.hideLoader)(),D();return}(0,a.hideLoader)(),D(),j(),S(e.results)}catch(e){(0,a.hideLoader)(),//location.replace('./error.html');
+console.log(e.message)}};V.addEventListener("submit",I);let B=document.querySelector(".header-comics");window.addEventListener("scroll",()=>{0!==scrollY?B.classList.add("js-header-bg-comics"):B.classList.remove("js-header-bg-comics")}),o("hC9mB"),o("bfVKR")}();//# sourceMappingURL=comics.fbdc01d2.js.map
+
+//# sourceMappingURL=comics.fbdc01d2.js.map
