@@ -187,6 +187,11 @@
   gap: 8px;
   align-items: center;
   width: 100%;
+  cursor: pointer;
+}
+.characters-item:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
 }
 
 .character-name {

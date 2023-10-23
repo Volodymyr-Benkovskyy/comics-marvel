@@ -15,19 +15,9 @@ const clickRerenderCharacters = document.querySelector(
   '.js-click-rerender-Characters'
 );
 
-/* const rerenderCharacters = event => {
-  const id = event.target.dataset.id;
-  const fakeEvent = { target: event.target }; // Створюємо об'єкт події
-  onModalOpenCharactersClick(fakeEvent, id); // Передаємо об'єкт події та id
-  console.log('rerenderCharacters');
-};
-
-clickRerenderCharacters.addEventListener('click', rerenderCharacters); */
-
 const rerenderCharacters = event => {
   const target = event.target; // Елемент, на який було клікнуто
   const id = target.dataset.id;
-
   // Перевіряємо, чи клікнуто на певному дитячому елементі
   if (target.matches('.character-img, .character-name')) {
     const fakeEvent = { target };
@@ -38,9 +28,6 @@ const rerenderCharacters = event => {
 
 clickRerenderCharacters.addEventListener('click', rerenderCharacters);
 
-/* ////////////////////////////////////////// */
-/* ////////////////////////////////////////// */
-/* ////////////////////////////////////////// */
 /* ////////////////////////////////////////// */
 
 export const onModalComicsClick = async event => {
@@ -95,28 +82,12 @@ export const onModalComicsClick = async event => {
     }, 1000);
   }
 };
-//clickDelegateComics.addEventListener('click', onModalComicsClick);
 
 /* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
-/* //////////////////////////// */
+
 const markupSeriesData = images => {
   return images
-
+    .slice(0, 3)
     .map(el => {
       return `<li>
             <img class="photo-small-image" src="${el.path}.${el.extension}" alt="" />

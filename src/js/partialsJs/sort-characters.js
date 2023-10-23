@@ -5,13 +5,27 @@ import debounce from 'lodash.debounce';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import flatpickr from 'flatpickr';
-
+import { onModalOpenCharactersClick } from './modal-characters';
 const sortContainer = document.querySelector('.js-characters-sort-container');
 const formSearchFilter = document.querySelector('.js-characters-sort-form');
 const inputComicsEl = document.querySelector('.js-chararcters-comics-input');
 const selectOrderEl = document.querySelector('.js-characters-select-order');
 const inputNameEl = document.querySelector('.js-chararcters-name-input');
 
+/* ////////////////////////////////// */
+const onModalFilterCharacters = event => {
+  const target = event.target; // Елемент, на який було клікнуто
+  const id = target.dataset.id;
+
+  // Перевіряємо, чи клікнуто на певному дитячому елементі
+  if (target.matches('.characters-sort-img, .characters-sort-title')) {
+    const clickEventFilter = { target };
+    onModalOpenCharactersClick(clickEventFilter, id);
+  }
+};
+
+sortContainer.addEventListener('click', onModalFilterCharacters);
+/* ///////////////////////////////// */
 let idComics = [];
 let itemsPerPage = null;
 let queryName = null;
@@ -38,12 +52,12 @@ const createSortContainer = data => {
       return `<li class="characters-sort-item">
       <a class="characters-sort-link">
         <img class="characters-sort-img"
-        data-set="${el.id}"
+        data-id="${el.id}"
         src="${el.thumbnail.path}.${el.thumbnail.extension}"
         alt="${el.name}"
       />
           <div class="characters-sort-context">
-          <h3  class="characters-sort-title" data-set="${el.id}">${el.name}</h3>
+          <h3  class="characters-sort-title" data-id="${el.id}">${el.name}</h3>
           </div>
           </a>
       </li>
@@ -112,7 +126,7 @@ const fetchAndRenderCharacterList = async () => {
     });
   } catch (error) {
     hideLoader();
-    //location.replace('./error.html');
+    location.replace('./error.html');
     console.log(error.message);
   }
 };

@@ -3,6 +3,7 @@ import { showLoader, hideLoader } from '../helpers/loader';
 import { getItemsPerPage } from '../helpers/getItemsPerPage.js';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import { onModalComicsClick } from './modal-comics';
 
 let queryTitle = '';
 let queryFormat = '';
@@ -20,6 +21,19 @@ const selectFormatEl = document.querySelector('.js-comics-select-format');
 const selectComicsOrderEl = document.querySelector('.js-comics-select-order');
 const selectDateEl = document.querySelector('.js-comics-select-year');
 
+const onModalFilterComics = event => {
+  const target = event.target; // Елемент, на який було клікнуто
+  const id = target.dataset.id;
+
+  // Перевіряємо, чи клікнуто на певному дитячому елементі
+  if (target.matches('.comics-sort-img, .comics-sort-title')) {
+    const clickEventFilterComics = { target };
+    onModalComicsClick(clickEventFilterComics, id);
+  }
+};
+
+sortList.addEventListener('click', onModalFilterComics);
+
 const createSelectYears = () => {
   let yearsArr = [];
   for (let i = 2023; i > 1949; i -= 1) {
@@ -35,12 +49,12 @@ const createComicsList = data => {
       return `<li class="comics-sort-item">
       <a class="comics-sort-link">
         <img class="comics-sort-img"
-        data-set="${id}"
+        data-id="${id}"
         src="${thumbnail.path}.${thumbnail.extension}"
         alt="${title}"
       />
           <div class="comics-sort-context">
-          <h3  class="comics-sort-title" data-set="${id}">${title}</h3>
+          <h3  class="comics-sort-title" data-id="${id}">${title}</h3>
           </div>
           </a>
       </li>

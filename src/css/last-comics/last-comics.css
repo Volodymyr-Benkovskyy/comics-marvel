@@ -44,9 +44,7 @@ p.last-comics-creator {
   bottom: 20px;
   cursor: pointer;
 }
-.swiper {
-  z-index: 2 !important;
-}
+
 .last-comics-item:hover {
   cursor: pointer;
   transform: scale(1.1);

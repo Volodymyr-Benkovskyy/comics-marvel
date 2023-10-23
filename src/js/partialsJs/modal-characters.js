@@ -11,7 +11,7 @@ const modalContainerHidden = document.querySelector(
   '.modal-container-characters'
 );
 
-const clickDelegate = document.querySelector('.js-click-delegate-characters');
+//const clickDelegate = document.querySelector('.js-click-delegate-characters');
 const clickRerenderComics = document.querySelector('.js-click-delegate-comics');
 
 const onCloseBtnElClick = () => {
@@ -30,7 +30,6 @@ const rerenderComics = event => {
   if (target.matches('.modal-comics-img, .comics-title')) {
     const comicsEvent = { target };
     onModalComicsClick(comicsEvent, id);
-    console.log('rerenderCharacters');
   }
 };
 
@@ -76,7 +75,7 @@ export const onModalOpenCharactersClick = async event => {
   }
 };
 
-clickDelegate.addEventListener('click', onModalOpenCharactersClick);
+//clickDelegate.addEventListener('click', onModalOpenCharactersClick);
 
 const createMarkupCharacters = array => {
   const { thumbnail, series0, series1, series2, name } = array;

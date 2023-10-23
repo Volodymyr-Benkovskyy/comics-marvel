@@ -1,14 +1,17 @@
 import { api } from './apiMarvel';
 import { showLoader, hideLoader } from '../helpers/loader.js';
+import { onModalOpenCharactersClick } from './modal-characters';
 const randomImg = document.querySelector('.js-random-img');
 const randomDescr = document.querySelector('.js-random-descr');
-
+const clickDelegateRandomCharacters = document.querySelector(
+  '.js-click-random-characters'
+);
 const createRandomImg = array => {
   const data = array
     .map(({ id, thumbnail, name }) => {
       return ` 
       
-      <li class= "js-slide js-random-characters-img" data-id="${id}">
+      <li class= "js-slide" data-id="${id}">
     
       <picture>
       <source media="(min-width: 1440px)"
@@ -24,6 +27,24 @@ const createRandomImg = array => {
     .join('');
   return data;
 };
+
+const onModalRandomCharacters = event => {
+  const target = event.target; // Елемент, на який було клікнуто
+  const id = target.dataset.id;
+
+  // Перевіряємо, чи клікнуто на певному дитячому елементі
+  if (
+    target.matches('.js-random-characters-img, .js-random-characters-title')
+  ) {
+    const RandomCharacters = { target };
+    onModalOpenCharactersClick(RandomCharacters, id);
+  }
+};
+
+clickDelegateRandomCharacters.addEventListener(
+  'click',
+  onModalRandomCharacters
+);
 
 const renderRandomImg = data => {
   randomImg.insertAdjacentHTML('beforeend', createRandomImg(data));
