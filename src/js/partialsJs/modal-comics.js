@@ -78,7 +78,7 @@ export const onModalComicsClick = async event => {
     hideLoader();
   } catch (error) {
     hideLoader();
-    Notify.failure('This information is missing');
+    Notify.failure('No information available');
   }
 };
 

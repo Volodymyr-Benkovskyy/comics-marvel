@@ -48,7 +48,7 @@ p.last-comics-creator {
 .last-comics-item:hover {
   cursor: pointer;
   transform: scale(1.1);
-  transition: transform 0.3s;
+  transition: transform 0.6s;
 }
 @media screen and (min-width: 768px) {
   .last-comics-section {

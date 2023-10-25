@@ -89,7 +89,7 @@
 }
 .comics-sort-item:hover {
   transform: scale(1.1);
-  transition: transform 0.3s;
+  transition: transform 0.6s;
 }
 
 .comics-sort-link {

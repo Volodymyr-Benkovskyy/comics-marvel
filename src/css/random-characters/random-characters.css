@@ -26,7 +26,7 @@
 }
 .random-characters-img-list:hover {
   transform: scale(1.1);
-  transition: transform 0.3s;
+  transition: transform 0.6s;
 }
 
 .js-slide {
@@ -69,8 +69,8 @@
 }
 
 .js-random-characters-title:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s;
+  transform: scale(1.05);
+  transition: transform 0.6s;
 }
 
 .js-active {
@@ -134,10 +134,6 @@
     margin-bottom: 20px;
   }
 
-  /*   .random-characters-img-list {
-    height: 500px;
-  }
- */
   .js-random-characters-img {
     width: 100%;
     height: auto;

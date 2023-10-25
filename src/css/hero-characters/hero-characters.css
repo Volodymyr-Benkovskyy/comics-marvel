@@ -1,7 +1,3 @@
-.swiper {
-  z-index: 2 !important;
-}
-
 .hero-characters {
   padding-top: 40;
   padding-bottom: 60px;
@@ -222,6 +218,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .swiper {
+    z-index: 1;
+  }
   .hero-hulk-img {
     padding-top: 130px;
     padding-bottom: 20px;

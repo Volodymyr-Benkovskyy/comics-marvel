@@ -2,6 +2,9 @@ import { api } from './apiMarvel';
 import { getItemsPerPage } from '../helpers/getItemsPerPage.js';
 import { showLoader, hideLoader } from '../helpers/loader.js';
 import { onModalOpenCharactersClick } from './modal-characters';
+import debounce from 'lodash.debounce';
+
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const jsScrolHeaderSearch = document.querySelector('.js-scrol-header-search');
 const galleryHero = document.querySelector('.js-header-search');
@@ -108,3 +111,62 @@ window.addEventListener('scroll', () => {
   nothisngSeach.classList.remove('nothing-seach');
 });
  */
+const searchInputAutocomplete = document.querySelector(
+  '.js-header-input-autoComplete'
+);
+const markupAutocompleteList = document.querySelector(
+  '.js-header-autocomplete-list'
+);
+
+const markupAutocompleteItem = data => {
+  return data
+    .map(el => {
+      return `
+        <li class="header-autocomplete-item">${el.name}</li>
+      `;
+    })
+    .join('');
+};
+
+const renderAutocompleteItem = data => {
+  markupAutocompleteList.innerHTML = markupAutocompleteItem(data);
+};
+
+const feachAutocomplete = async event => {
+  const inputValue = event.target.value.trim();
+
+  if (inputValue === '') {
+    markupAutocompleteList.innerHTML = '';
+    return;
+  }
+
+  try {
+    const response = await api.getCharacters({
+      nameStartsWith: inputValue,
+      limit: 20,
+      offset: 0,
+    });
+
+    markupAutocompleteList.innerHTML = '';
+    renderAutocompleteItem(response.results);
+  } catch (error) {
+    Notify.failure('No information available');
+  }
+};
+
+searchInputAutocomplete.addEventListener(
+  'input',
+  debounce(feachAutocomplete, 1000)
+);
+
+const handleAutocompleteItemClick = event => {
+  const selectedElement = event.target;
+
+  if (selectedElement.classList.contains('header-autocomplete-item')) {
+    searchInputAutocomplete.value = selectedElement.textContent;
+    searchInputAutocomplete.style.width = 'max-content';
+    markupAutocompleteList.innerHTML = '';
+    searchInputAutocomplete.innerHTML = '';
+  }
+};
+markupAutocompleteList.addEventListener('click', handleAutocompleteItemClick);

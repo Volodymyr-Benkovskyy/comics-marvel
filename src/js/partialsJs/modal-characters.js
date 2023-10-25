@@ -12,7 +12,6 @@ const modalContainerHidden = document.querySelector(
   '.modal-container-characters'
 );
 
-//const clickDelegate = document.querySelector('.js-click-delegate-characters');
 const clickRerenderComics = document.querySelector('.js-click-delegate-comics');
 
 const onCloseBtnElClick = () => {
@@ -71,11 +70,9 @@ export const onModalOpenCharactersClick = async event => {
     hideLoader();
   } catch (error) {
     hideLoader();
-    Notify.failure('This information is missing');
+    Notify.failure('No information available');
   }
 };
-
-//clickDelegate.addEventListener('click', onModalOpenCharactersClick);
 
 const createMarkupCharacters = array => {
   const { thumbnail, series0, series1, series2, name } = array;
